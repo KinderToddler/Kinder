@@ -6,6 +6,7 @@ const Nav = props =>(
   <nav className="navbar navbar-default">
     <div className="container-fluid">
       <ul className="nav navbar-nav">
+        <li className="brand">Kinder</li>
         <li
           className={
             window.location.pathname === "/" ||
@@ -17,11 +18,15 @@ const Nav = props =>(
           <Link to="/">Home</Link>
         </li>
         <li
+          className={window.location.pathname === "/edit" ? "active" : ""}>
+          <Link to="/match">Edi Profile</Link>
+        </li>
+        <li
           className={window.location.pathname === "/match" ? "active" : ""}>
-          <Link to="/match">Match</Link>
+          <Link to="/match">Find Match</Link>
         </li>
         <li className={window.location.pathname === "/search" ? "active" : ""}>
-          <Link to="/search">Search</Link>
+          <Link to="/search">Past Matches</Link>
         </li>
         <li className={window.location.pathname === "/logout" ? "active" : "logout"}>
           <Link to="/">LogOut</Link>
@@ -29,5 +34,6 @@ const Nav = props =>(
       </ul>
     </div>
   </nav>
-);  
+);
+
 export default Nav;
