@@ -1,5 +1,5 @@
 import React from "react";
-import ProfilePic from "./ProfilePic";
+import ProfilePic from "../ProfilePic/ProfilePic";
 
 const Profile = (props) =>(
   <div className="profile-container">

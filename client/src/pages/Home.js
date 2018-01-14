@@ -19,7 +19,9 @@ class Home extends Component {
 
   render() {
     return (
-      <Profile />
+      <div>
+        <Profile />
+      </div>  
     );
   }
 }
