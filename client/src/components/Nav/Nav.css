@@ -1,0 +1,62 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f5db8d;
+}
+
+
+li {
+  float: left;
+}
+
+li a {
+  font-family: 'Kranky', cursive;
+  font-size: 1.5em;
+  transform: rotate(-5deg);
+  display: block;
+  color: #b1412a;
+  text-align: center;
+  padding: 35px 28px;
+  text-decoration: none;
+}
+
+li a:hover {
+  color: #c9a7a0;
+  transform: rotate(-17deg);
+}
+
+.brand {
+  font-family: 'Kranky', cursive;
+  text-decoration: underline;
+  font-size: 2.5em;
+  transform: rotate(-7deg);
+  display: block;
+  color: #b1412a;
+  text-align: center;
+  padding: 20px 28px;
+}
+
+.navbar {
+  -webkit-box-shadow: 0px 5px 11px 0px #dfdfdf;
+  box-shadow: 0px 5px 11px 0px #dfdfdf;
+  height: 100px;
+  background-color: #f5db8d;
+}
+
+.logout {
+  float: right;
+}
+/*font-family: 'Indie Flower', cursive;
+font-family: 'Rubik', sans-serif;
+font-family: 'Gloria Hallelujah', cursive;
+font-family: 'Concert One', cursive;
+font-family: 'Freckle Face', cursive;
+font-family: 'Itim', cursive;
+font-family: 'Give You Glory', cursive;
+font-family: 'Kranky', cursive;
+font-family: 'Swanky and Moo Moo', cursive;
+font-family: 'Snowburst One', cursive;*/
