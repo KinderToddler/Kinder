@@ -29,6 +29,9 @@ li a:hover {
   transform: rotate(-17deg);
 }
 
+li a:active { 
+    background-color: yellow;
+}
 .brand {
   font-family: 'Kranky', cursive;
   text-decoration: underline;
