@@ -6,7 +6,7 @@ import Nav from './components/Nav/Nav';
 import Home from './pages/Home';
 import Match from './pages/Match';
 import Wrapper from './components/Wrapper/Wrapper';
-
+import Login from './pages/Login';
 
 
 class App extends Component {
@@ -17,16 +17,10 @@ class App extends Component {
         <div className="App">
           <Nav />
           <Wrapper>
-            <Route exact path="/" component={Home} />
+            <Route exact path="/" component={Login} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/match" component={Match} />
           </Wrapper>
-          <div className="App-header">
-            <h2>Welcome to React</h2>
-          </div>
-          <p className="App-intro">
-            To get started, edit <code>src/App.js</code> and save to reload.
-          </p>
         </div>
       </Router>  
     );
