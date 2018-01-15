@@ -23,13 +23,14 @@ li {
   text-decoration: none;
 }
 
-.nav>li>a:hover {
+.nav>li>a:focus, .nav>li>a:hover {
   color: #c9a7a0;
+  background-color: #f5db8d;
   transform: rotate(-17deg);
 }
 
 .nav>li>a:active { 
-    background-color: yellow;
+    background-color: #f5db8d;
 }
 .brand {
   font-family: 'Kranky', cursive;

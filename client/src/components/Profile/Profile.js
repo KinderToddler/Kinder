@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, Route } from "react-router-dom";
 import ProfilePic from "../ProfilePic/ProfilePic";
 import Name from "../Name/Name";
 import Gender from "../Gender/Gender";
@@ -31,7 +32,7 @@ const Profile = (props) =>(
     </div>
     <div className="user-description">  
         Short description: <Text text={props.profile.text} />
-    </div>    
+    </div>
   </div>  
 );
 
