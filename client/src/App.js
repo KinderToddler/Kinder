@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Match from './pages/Match';
 import Wrapper from './components/Wrapper/Wrapper';
 import Login from './pages/Login';
+import Past from './pages/Past';
 
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
             <Route exact path="/" component={Login} />
             <Route path="/home" component={Home} />
             <Route exact path="/match" component={Match} />
+            <Route exact path="/past" component={Past} />
           </Wrapper>
         </div>
       </Router>  

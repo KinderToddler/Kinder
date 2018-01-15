@@ -42,7 +42,7 @@ class Edit extends Component {
   handleFormSubmit = event => {
     event.preventDefault()
 
-    const { imageUrl, name, gender } = this.state
+    const { imageUrl, name, gender, age, likes, dislikes, text } = this.state
 
   }
 
@@ -55,7 +55,7 @@ class Edit extends Component {
   }
 
   render() {
-    const { imageUrl, name, gender} = this.state
+    const { imageUrl, name, gender, age, likes, dislikes, text} = this.state
 
 
     return (
@@ -80,11 +80,34 @@ class Edit extends Component {
                 name='gender'
                 placeholder='gender'
               />
+              <Input
+                value={ age }
+                onChange={ this.handleInputChange }
+                name='age'
+                placeholder='age'
+              />
+              <Input
+                value={ likes }
+                onChange={ this.handleInputChange }
+                name='likes'
+                placeholder='likes'
+              />
+              <Input
+                value={ dislikes }
+                onChange={ this.handleInputChange }
+                name='dislikes'
+                placeholder='dislikes'
+              />
+              <Input
+                value={ text }
+                onChange={ this.handleInputChange }
+                name='text'
+                placeholder='text'
+              />
               <FormBtn
                 onClick={ this.handleFormSubmit }
               >
               </FormBtn>
-
             </form>
 
         </div>

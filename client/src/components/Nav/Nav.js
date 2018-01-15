@@ -29,8 +29,8 @@ const Nav = props =>(
           className={window.location.pathname === "/match" ? "active" : ""}>
           <Link to="/match">Find Match</Link>
         </li>
-        <li className={window.location.pathname === "/search" ? "active" : ""}>
-          <Link to="/search">Past Matches</Link>
+        <li className={window.location.pathname === "/past" ? "active" : ""}>
+          <Link to="/past">Past Matches</Link>
         </li>
         <li className={window.location.pathname === "/logout" ? "active" : "logout"}>
           <Link to="/">LogOut</Link>
