@@ -18,7 +18,7 @@ class App extends Component {
           <Nav />
           <Wrapper>
             <Route exact path="/" component={Login} />
-            <Route exact path="/home" component={Home} />
+            <Route path="/home" component={Home} />
             <Route exact path="/match" component={Match} />
           </Wrapper>
         </div>
