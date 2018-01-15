@@ -12,8 +12,7 @@ ul {
 li {
   float: left;
 }
-
-li a {
+.nav>li>a {
   font-family: 'Kranky', cursive;
   font-size: 1.5em;
   transform: rotate(-5deg);
@@ -24,12 +23,12 @@ li a {
   text-decoration: none;
 }
 
-li a:hover {
+.nav>li>a:hover {
   color: #c9a7a0;
   transform: rotate(-17deg);
 }
 
-li a:active { 
+.nav>li>a:active { 
     background-color: yellow;
 }
 .brand {
