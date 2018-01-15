@@ -7,7 +7,10 @@ import Home from './pages/Home';
 import Match from './pages/Match';
 import Wrapper from './components/Wrapper/Wrapper';
 
+
+
 class App extends Component {
+
   render() {
     return (
       <Router>
