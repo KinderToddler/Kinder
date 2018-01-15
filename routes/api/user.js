@@ -11,6 +11,11 @@ router.route("/")
 router.route("/profile")
   .get(userController.findAllProfiles)
 
+// Matches with "/api/user/match"
+
+router.route("/match")
+  .post(userController.addMatch)
+
 
 //Matches with /api/user/profile/:id
 router.route("/profile/:id")

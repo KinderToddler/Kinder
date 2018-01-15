@@ -16,10 +16,10 @@ var UserSchema = new Schema({
     type: String,
     required: true
   },
-  matches: {
+  matches: [{
     type: Schema.Types.ObjectId,
     ref: "User"
-  },
+  }],
   profile: {
     type: Schema.Types.ObjectId,
     ref: "Profile"
