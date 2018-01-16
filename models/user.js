@@ -43,6 +43,10 @@ var UserSchema = new Schema({
   imgUrl: {
     type: String,
     required: true
+  },
+  email: {
+    type: String,
+    required: true
   }
 });
 
