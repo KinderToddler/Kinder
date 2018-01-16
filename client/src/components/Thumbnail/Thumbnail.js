@@ -9,6 +9,8 @@ const Thumbnail = (props) => (
     <div className="img-container" key={props.id}>
       <img alt={props.matches.name} src={props.matches.image} />
     </div>
+    {props.matches.firstName}
+    {props.matches.lastName}
   </div>
 );
 

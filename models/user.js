@@ -20,9 +20,29 @@ var UserSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User"
   }],
-  profile: {
-    type: Schema.Types.ObjectId,
-    ref: "Profile"
+  likes: {
+    type: String,
+    required: true
+  },
+  dislikes: {
+    type: String,
+    required: true
+  },
+  allergies: {
+    type: String,
+    required: true
+  },
+  height: {
+    type: String,
+    required: true
+  },
+  age: {
+    type: String,
+    required: true
+  },
+  imgUrl: {
+    type: String,
+    required: true
   }
 });
 
