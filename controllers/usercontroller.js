@@ -21,6 +21,7 @@ module.exports = {
     db.User
       .findOne({ _id: req.params.id })
       .populate('profile')
+      .populate('matches')
       .then(dbModel => {
         res.json(dbModel);
         console.log(dbModel)

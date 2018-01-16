@@ -6,8 +6,8 @@ export default {
   //   return axios.get("/api/books");
   // },
   // Gets the book with the given id
-  getProfile: function(id) {
-    return axios.get("/api/profile/" + id);
+  getUser: function(id) {
+    return axios.get("/api/user/" + id);
   },
   saveProfile: function(profileData) {
     return axios.post("/api/profile", profileData);

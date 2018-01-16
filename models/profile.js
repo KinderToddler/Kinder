@@ -17,6 +17,10 @@ var ProfileSchema = new Schema({
   favoriteFood: {
     type: String,
     required: true
+  },
+  profilePic: {
+    type: String,
+    required: true
   }
 });
 

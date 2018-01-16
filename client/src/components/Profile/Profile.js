@@ -10,13 +10,14 @@ import Text from "../Text/Text";
 
 
 const Profile = (props) =>(
-    // <pre>
-    //   { JSON.stringify(props, null, 2) }
-    // </pre>
+
   <div className="profile-container">    
+        <pre>
+      { JSON.stringify(props, null, 2) }
+    </pre>
     <ProfilePic img={props.profile.imageUrl} />
     <div className="user-name">
-        Name: <Name name={props.profile.name} />
+        Name: <Name name={props.profile.favoriteColor} />
     </div>
     <div className="user-gender">
         Gender: <Gender gender={props.profile.gender} />
