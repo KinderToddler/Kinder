@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Link, Route } from "react-router-dom";
 import Profile from "../components/Profile/Profile";
 import Edit from "./Edit";
-import API from "../utils/API"
+import API from "../utils/API";
+import "./Home.css";
 
 class Home extends Component {
 
@@ -10,19 +11,16 @@ class Home extends Component {
     super(props)
     console.log(props)
     this.state = {
-      // imageUrl: "https://i.pinimg.com/736x/31/bf/2b/31bf2b60b9b6c6bb2836bbd392656546--toddler-girl-pictures-kid-pictures.jpg",
-      // name: "Alyssa",
-      // age: 12,
-      // gender: "neutral",
-      // dislikes: "Pizza, ice cream",
-      // likes: "dogs, slides",
-      // text: "very allergic to peanuts. loves play time with water."
-
-      favoriteColor: "",
-      favoriteShow: "",
-      favoriteFood: "",
       firstName: "",
-      lastName: "" 
+      lastName: "",
+      matches: "",
+      likes: "",
+      dislikes: "",
+      allergies: "",
+      height: "",
+      age: "",
+      imgUrl: "",
+      email: ""
     } 
   };
   // When the component mounts, load the profile information
@@ -31,10 +29,20 @@ class Home extends Component {
   }
 
   fetchProfile() {
-    API.getUser("5a5d6ca179fe869a42e7fe5d")
+    API.getUser("5a5ed88ae0496f0735bd2a1b")
       .then(user => {
-        this.setState({favoriteColor: user.data.profile.favoriteColor
-                      })
+        this.setState({
+          firstName: user.data.firstName,
+          lastName: user.data.lastName,
+          matches: user.data.matches,
+          likes: user.data.likes,
+          dislikes: user.data.dislikes,
+          allergies: user.data.allergies,
+          height: user.data.height,
+          age: user.data.age,
+          imgUrl: user.data.imgUrl,
+          email: user.data.lastName,
+        })
       })
   }        
         // <pre>
@@ -43,9 +51,6 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <pre>
-           { JSON.stringify(this.props.match.url, null, 2) }
-        </pre>
         <Profile profile={ this.state } />
         <Route exact path={this.props.match.url + '/edit'} component={Edit} /> 
       </div>

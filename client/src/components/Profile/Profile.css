@@ -1,0 +1,12 @@
+.profile-container {
+  max-width: 70%;
+  background-color: #aacee2;
+  display: flex;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.user-info{
+  background-color: white;
+  display: block;
+}
