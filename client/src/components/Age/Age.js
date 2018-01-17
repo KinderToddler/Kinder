@@ -4,7 +4,7 @@ import React from "react";
     // </pre>
 const Age = (props) =>(
   <div className="age-container">
-  {props.Age}
+  {props.age}
   </div>  
 );
 

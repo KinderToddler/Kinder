@@ -5,6 +5,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { Input, FormBtn } from '../components/Form'
 // import ErrorDisplay from '../../components/ErrorDisplay'
+import './Login.css'
 
 class Login extends Component {
 
@@ -77,15 +78,15 @@ class Login extends Component {
     }
 
     return (
-      <div clasName="container" fluid>
+      <div id="login-container" clasName="container" fluid>
         <div className="row">
-
-
-            <h1 style={{ textAlign: 'center', padding: 25 }}>
+          <div className="col-md-3"></div>
+          <div className="col-md-6">
+            <div className="header">
               {
                 newUser ? 'Signup' : 'Login'
               }
-            </h1>
+            </div>
 
             <form>
 
@@ -123,10 +124,9 @@ class Login extends Component {
               </p>
 
             </form>
-
+          </div>  
+          <div clasName="col-md-3"></div>
         </div>
-
-
       </div>
     )
   }
