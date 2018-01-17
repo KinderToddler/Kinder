@@ -1,27 +1,32 @@
 import React, { Component } from "react";
-import Profile from "../components/Profile/Profile";
+import Thumbnail from "../components/Thumbnail/Thumbnail";
+import API from "../utils/API"
 
 class Match extends Component {
+  
   state = {
-    Profile
+    Potentials: [] ,
   };
 
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
+  componentDidMount() {
+    this.findMatches();
   };
 
-
-  findMatch = id => {
-
-  };
+  findMatches() {
+    API.getUser()
+      .then(user => {
+        const potentialsArray = user.data.matches.map(match => match)
+        this.setState({Friends: potentialsArray})
+      })
+  }
 
   render() {
     return (
       <div>
-        <Profile profile={ this.state } />
+       <h1>Find a New Friend!</h1>
+       { this.state.Potentials.map(potential => {
+        return <Thumbnail matches = { potential } />;
+       })}
       </div>
     );
   };
