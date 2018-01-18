@@ -17,9 +17,17 @@ module.exports = (app, passport) => {
   // argument names for the route handler function which can be easy
   // to miss if you're not looking for it. Note the `({ user }` part
   // where this is happening.
-  app.post('/login', passport.authenticate('local'), ({ user }, res) => {
-    res.send({ user })
-  })
+  // app.post('/auth/login', passport.authenticate('local'), ({ user }, res) => {
+  //   res.send({ user })
+  // })
+
+  app.post('/auth/login', passport.authenticate('local'), function(req, res) {
+    console.log("authenticated")
+    // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
+    // So we're sending the user back the route to the members page because the redirect will happen on the front end
+    // They won't get this or even be able to access this page if they aren't authed
+    res.send({redirectTo: '/home'})
+  });
   // The equivalent function in old JS would look like:
   /*
   app.post('/login', passport.authenticate('local'), function(req, res) {
@@ -31,20 +39,17 @@ module.exports = (app, passport) => {
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
-  app.post('/signup', async function(req, res, next) {
-
-    const { username, password } = req.body
-
-    try {
-      await db.User.create({ username, password })
-      next()
-    }
-    catch (err) {
-      res.json(err)
-    }
-
-  }, passport.authenticate('local'), ({ user }, res) => {
-    res.send({ user })
+  app.post('/auth/signup', function(req, res) {
+    db.User.create({
+        username: req.body.username,
+        password: req.body.password
+      })
+      .then(function() {
+        res.send({redirectTo: '/login'})
+      })
+      .catch(function(err) {
+        res.json(err)
+      })
   })
 
   // Route for logging user out

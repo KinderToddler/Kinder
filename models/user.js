@@ -9,12 +9,12 @@ var UserSchema = new Schema({
   // `firstName` is required and of type String
   firstName: {
     type: String,
-    required: true
+    required: false
   },
   // `lastName` is required and of type String
   lastName: {
     type: String,
-    required: true
+    required: false
   },
   matches: [{
     type: Schema.Types.ObjectId,
@@ -22,33 +22,47 @@ var UserSchema = new Schema({
   }],
   likes: {
     type: String,
-    required: true
+    required: false
   },
   dislikes: {
     type: String,
-    required: true
+    required: false
   },
   allergies: {
     type: String,
-    required: true
+    required: false
   },
   height: {
     type: String,
-    required: true
+    required: false
   },
   age: {
     type: String,
-    required: true
+    required: false
   },
   imgUrl: {
     type: String,
-    required: true
+    required: false
   },
   email: {
     type: String,
+    required: false
+  },
+  username: {
+    type: String,
+    required: true,
+    index: {unique: true}
+  },
+  password: {
+    type: String,
     required: true
   }
+
 });
+
+  UserSchema.methods.validPassword = function( pwd ) {
+    return ( this.password === pwd );
+  };
 
 // This creates our model from the above schema, using mongoose's model method
 var User = mongoose.model("User", UserSchema);
