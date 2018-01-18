@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const userController = require("../../controllers/usercontroller.js");
 
+
 // Matches with "/api/user"
 router.route("/")
   .get(userController.findAll)
@@ -15,6 +16,7 @@ router.route("/profile")
 
 router.route("/match")
   .post(userController.addMatch)
+
 
 
 //Matches with /api/user/profile/:id

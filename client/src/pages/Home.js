@@ -4,6 +4,8 @@ import Profile from "../components/Profile/Profile";
 import Edit from "./Edit";
 import API from "../utils/API";
 import "./Home.css";
+import axios from "axios";
+
 
 class Home extends Component {
 
@@ -29,25 +31,39 @@ class Home extends Component {
   }
 
   fetchProfile() {
-    API.getUser("5a5ed88ae0496f0735bd2a1b")
-      .then(user => {
-        this.setState({
-          firstName: user.data.firstName,
-          lastName: user.data.lastName,
-          matches: user.data.matches,
-          likes: user.data.likes,
-          dislikes: user.data.dislikes,
-          allergies: user.data.allergies,
-          height: user.data.height,
-          age: user.data.age,
-          imgUrl: user.data.imgUrl,
-          email: user.data.lastName,
-        })
-      })
-  }        
+
+    API.checkForSession()
+    .then( res => {
+      const user = res.data.user
+
+      console.log(user)
+    })
+    .catch(() => {})
+
+  }
+
+    // axios.getUserData()
+    //   .then(user => {
+    //     console.log("user " , user)
+    //     this.setState({
+    //       // firstName: user.data.firstName,
+    //       // lastName: user.data.lastName,
+    //       // matches: user.data.matches,
+    //       // likes: user.data.likes,
+    //       // dislikes: user.data.dislikes,
+    //       // allergies: user.data.allergies,
+    //       // height: user.data.height,
+    //       // age: user.data.age,
+    //       // imgUrl: user.data.imgUrl,
+    //       // email: user.data.lastName,
+    //       username: user.data.username
+    //     })
+    //   })
+          
         // <pre>
         //    { JSON.stringify(this.props, null, 2) }
         // </pre>
+        
   render() {
     return (
       <div>
