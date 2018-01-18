@@ -17,5 +17,11 @@ export default {
   },
   loginUser: function(user){
     return axios.post("/auth/login", user)
-  }
+  },
+  getUserData: function(){
+    return axios.get("/auth/user_data", function(req,res){
+      console.log(req)
+    })
+  },
+  checkForSession: credentials => ( axios.get('/session') )
 };

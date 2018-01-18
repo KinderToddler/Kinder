@@ -1,8 +1,6 @@
 // // Send every request to the React app
 // // Define any API routes before this runs
-// app.get("*", function(req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+
 
 // app.listen(PORT, function() {
 //   console.log(`🌎 ==> Server now on port ${PORT}!`);
@@ -34,7 +32,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Serve up static assets
-app.use(express.static("client/build"));
+// app.use(express.static("client/build"));
 
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -48,17 +46,21 @@ app.use(session({
 }))
 
 
-// Passing the passport singleton to our passport middleware to load our authentication strategies
 app.use(passport.initialize())
 app.use(passport.session())
 
+// Passing the passport singleton to our passport middleware to load our authentication strategies
 require('./middleware/passport')(passport)
 
 // Requiring our authentication routes
 require('./routes/auth.js')(app, passport)
 
-// Add routes, both API and view
+// Add api routes
 app.use(routes);
+
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 
 // Set up promises with mongoose
