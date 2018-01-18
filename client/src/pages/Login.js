@@ -1,11 +1,12 @@
 
 import React, { Component } from 'react'
-// import API from '../../utils/API'
 // import AuthInterface from '../../utils/AuthInterface'
 import { Redirect } from 'react-router-dom'
 import { Input, FormBtn } from '../components/Form'
 // import ErrorDisplay from '../../components/ErrorDisplay'
 import './Login.css'
+import API from "../utils/API";
+
 
 class Login extends Component {
 
@@ -39,11 +40,31 @@ class Login extends Component {
   handleFormSubmit = event => {
     event.preventDefault()
 
-    const { username, password, newUser } = this.state
+    // const { username, password, newUser } = this.state
+    let user = {
+      username: this.state.username,
+      password: this.state.password
+    }
 
-    if ( !(username && password) ) return
+    // if ( !(username && password) ) return
 
-    const authMethod = newUser ? 'signup' : 'login'
+    // const authMethod = newUser ? 'signup' : 'login'
+
+    if (this.state.newUser){
+      API.createUser(user)
+      .then(function(user) {
+        console.log(user)
+      })
+      .catch(console.error)
+    }
+    else {
+      API.loginUser(user)
+      .then(function(user){
+        console.log(user)
+      })
+      .catch(console.error)
+    }
+
 
     // API[ authMethod ]({ username, password })
     //   .then( res => {

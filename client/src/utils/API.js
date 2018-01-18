@@ -11,5 +11,11 @@ export default {
   },
   saveProfile: function(profileData) {
     return axios.post("/api/profile", profileData);
+  },
+  createUser: function(user){
+    return axios.post("/auth/signup", user)
+  },
+  loginUser: function(user){
+    return axios.post("/auth/login", user)
   }
 };
