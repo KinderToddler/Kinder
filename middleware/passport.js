@@ -62,7 +62,7 @@ module.exports = function (passport) {
   // Deserializing is what populates the `user` property on the request object.
   // So whenever you see `req.user` in the code it's coming from this.
   passport.deserializeUser(({ id }, cb) => {
-    db.User.findOne({ where: { id }, attributes: [ 'username', 'id' ] })
+    db.User.findOne({ _id: { id } })
       .then( user => {
         cb(null, user)
       })
