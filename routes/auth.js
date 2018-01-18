@@ -63,7 +63,7 @@ module.exports = (app, passport) => {
   app.get('/session', isAuthenticated, (req, res) => {
     const { username} = req.user
 
-    res.json({ user: { username })
+    res.json({ user: { username }})
   })
 
 }
