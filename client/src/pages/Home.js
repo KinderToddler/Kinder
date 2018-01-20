@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link, Route } from "react-router-dom";
 import Profile from "../components/Profile/Profile";
+import EditTest from "../components/EditTest/EditTest";
 import Edit from "./Edit";
 import API from "../utils/API";
 import "./Home.css";
@@ -59,6 +60,7 @@ class Home extends Component {
     return (
       <div>
         <Profile profile={ this.state } />
+        <EditTest profile={ this.state } />
         <Route exact path={this.props.match.url + '/edit'} component={Edit} /> 
       </div>
     );
