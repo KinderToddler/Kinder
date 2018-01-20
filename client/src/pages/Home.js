@@ -36,7 +36,7 @@ class Home extends Component {
 
     API.checkForSession()
     .then( res => {
-      //const user = res.data.user
+       //const user = res.data.user
       return API.getUser(res.data.user._id)
     })
     .then( res=> {
@@ -49,11 +49,16 @@ class Home extends Component {
   }
    
 
-  onEditChange = (event) => {
-    console.log("My Childe changed.!")
-    const { name, value } = event.target
-    this.setState({[name]: value})
-  } 
+  handleFormSubmit = email => {
+    console.log("submitted email on home:", email)
+    this.setState({email}, () => {
+    API.updateUser(this.state._id,  this.state)
+      .then( res => {
+        console.log(res)
+      })
+      .catch(() => {})})
+  }
+
   // render() {
   // if (this.state.editing) return <EditProfile userProfile={this.state.userProfile} />
   // return <Profile/>
@@ -66,7 +71,7 @@ class Home extends Component {
     return (
       <div>
         <Profile profile={ this.state } />
-        <EditTest profile={ this.state } parentOnChange={ this.onEditChange }/>
+        <EditTest profile={ this.state } email={ this.state.email } childOnSubmit= {this.handleFormSubmit}/>
         <Route exact path={this.props.match.url + '/edit'} component={Edit} /> 
       </div>
     );

@@ -12,42 +12,39 @@ class EditTest extends Component {
      super(props)
   }
 
-  handleFormSubmit = event => {
-    event.preventDefault()
-    const user = this.props.home.state
+  state = {}
 
-    console.log("this is this.props.profile._id " , this.props.profile._id)
-
-    API.updateUser(this.props.profile._id,  user)
-      .then( res => {
-        console.log(res)
-      })
-      .catch(() => {})
+  componentDidMount() {
+    this.setState({email: this.props.email})
   }
 
+  onEditChange = (event) => {
+    const { name, value } = event.target
+    this.setState({[name]: value})
+  } 
 
+  onButtonClick = (event) => {
+    event.preventDefault()
+    this.props.childOnSubmit(this.state.email)
+  }
 
   render() {
-    console.log("props are here ", this.props.home.state)
-    const email  = this.props.home.state.email
-    console.log(this.state)
-
     return (
 
       <div className="container" fluid>
      <pre>
-      { JSON.stringify(this.props.home.state, null, 2) }
+      { JSON.stringify(this.state.email, null, 2) }
      </pre>
         <div className="row">
             <form>
               <Input
-                value={ email }
-                onChange={ this.props.parentOnChange }
+                value={ this.state.email }
+                onChange={ this.onEditChange}
                 name='email'
                 placeholder='email address'
               />
               <FormBtn
-                onClick={ this.handleFormSubmit }
+                onClick={ this.onButtonClick }
               >
               </FormBtn>
             </form>
