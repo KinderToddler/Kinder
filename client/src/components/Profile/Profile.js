@@ -6,16 +6,13 @@ import Name from "../Name/Name";
 import Height from "../Height/Height";
 import Age from "../Age/Age";
 import Text from "../Text/Text";
-
-    //  <pre>
+    // <pre>
     //   { JSON.stringify(props, null, 2) }
     // </pre>
 
 const Profile = (props) =>(
   <div className="profile-container">
-       <pre>
-      { JSON.stringify(props, null, 2) }
-    </pre>
+
     <ProfilePic img={props.profile.imgUrl} />
     <div className="user-info">
         <div className="user-name">
@@ -41,7 +38,7 @@ const Profile = (props) =>(
             Dislikes: <Text text={props.profile.dislikes} />
         </div>
         <div className="user-allergies">  
-            Allergies: <Text text={props.profile.username} />
+            Allergies: <Text text={props.profile.allergies} />
         </div>
     </div>
   </div>  

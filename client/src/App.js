@@ -45,9 +45,9 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-        // <pre>
-        //    { JSON.stringify(this.state, null, 2) }
-        // </pre>
+        <pre>
+           { JSON.stringify(this.state, null, 2) }
+        </pre>
           <Nav />
           <Wrapper>
             <Route exact path="/" component={Login} />
