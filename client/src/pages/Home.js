@@ -47,7 +47,13 @@ class Home extends Component {
     .catch(() => {})
 
   }
-    
+   
+
+  onEditChange = (event) => {
+    console.log("My Childe changed.!")
+    const { name, value } = event.target
+    this.setState({[name]: value})
+  } 
   // render() {
   // if (this.state.editing) return <EditProfile userProfile={this.state.userProfile} />
   // return <Profile/>
@@ -60,7 +66,7 @@ class Home extends Component {
     return (
       <div>
         <Profile profile={ this.state } />
-        <EditTest profile={ this.state } />
+        <EditTest profile={ this.state } parentOnChange={ this.onEditChange }/>
         <Route exact path={this.props.match.url + '/edit'} component={Edit} /> 
       </div>
     );

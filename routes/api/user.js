@@ -17,8 +17,6 @@ router.route("/profile")
 router.route("/match")
   .post(userController.addMatch)
 
-
-
 //Matches with /api/user/profile/:id
 router.route("/profile/:id")
 	.post(userController.createProfile)

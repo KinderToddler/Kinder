@@ -3,22 +3,21 @@ import React, { Component } from 'react';
 import API from "../../utils/API";
 import { Redirect } from 'react-router-dom';
 import { Input, FormBtn } from '../Form';
+import Home from "../../pages/Home";
+
 
 class EditTest extends Component {
 
   constructor(props) {
-    super(props)
-  };
-
-
-  handleInputChange = event => {
-    const {name, value} = event.target
+     super(props)
   }
 
   handleFormSubmit = event => {
     event.preventDefault()
-    const {name, value} = event.target
-    const user = {name, value}
+    const user = this.props.home.state
+
+    console.log("this is this.props.profile._id " , this.props.profile._id)
+
     API.updateUser(this.props.profile._id,  user)
       .then( res => {
         console.log(res)
@@ -26,20 +25,24 @@ class EditTest extends Component {
       .catch(() => {})
   }
 
+
+
   render() {
-      const { email } = this.props.profile.email
+    console.log("props are here ", this.props.home.state)
+    const email  = this.props.home.state.email
+    console.log(this.state)
 
     return (
 
-      <div clasName="container" fluid>
-        <pre>
-           { JSON.stringify(this.props, null, 2) }
-        </pre>
+      <div className="container" fluid>
+     <pre>
+      { JSON.stringify(this.props.home.state, null, 2) }
+     </pre>
         <div className="row">
             <form>
               <Input
                 value={ email }
-                onChange={ this.handleInputChange }
+                onChange={ this.props.parentOnChange }
                 name='email'
                 placeholder='email address'
               />

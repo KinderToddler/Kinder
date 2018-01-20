@@ -4,6 +4,7 @@ import API from "../utils/API";
 import { Redirect } from 'react-router-dom'
 import { Input, FormBtn } from '../components/Form'
 
+
 class Edit extends Component {
 
   state = {
@@ -65,7 +66,7 @@ class Edit extends Component {
 
     return (
 
-      <div clasName="container" fluid>
+      <div className="container" fluid>
         
         <div className="row">
             <form>
