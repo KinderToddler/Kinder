@@ -1,36 +1,36 @@
 
 import React, { Component } from 'react'
-// import API from '../../utils/API'
-// import AuthInterface from '../../utils/AuthInterface'
+import API from "../utils/API";
 import { Redirect } from 'react-router-dom'
 import { Input, FormBtn } from '../components/Form'
-// import ErrorDisplay from '../../components/ErrorDisplay'
 
 class Edit extends Component {
 
   state = {
-      imageUrl: "",
-      name: "Alyssa",
+      imgUrl: "",
+      firstName: "Alyssa",
       age: 12,
       gender: "neutral",
       dislikes: "Pizza, ice cream",
       likes: "dogs, slides",
-      text: "very allergic to peanuts. loves play time with water." 
+      allergies: "very allergic to peanuts. loves play time with water." 
     
   }
 
-  // componentDidMount() {
-  //   API.checkForSession()
-  //     .then( res => {
-  //       const { user } = res.data
+  componentDidMount() {
+    API.checkForSession()
+      .then( res => {
+        const id = res.data.user._id
+        return API.getUser(id)
+      })
+      .then( res => {
+        const { imgUrl, firstName, gender, age, likes, dislikes, allergies } = res.data
+        this.setState({ imgUrl, firstName, gender, age, likes, dislikes, allergies })
 
-  //       if ( user ) {
-  //         AuthInterface.login( user )
-  //         this.setState({ loggedIn: true })
-  //       }
-  //     })
-  //     .catch(() => {})
-  // }
+      })
+      .catch(() => {})
+  }
+
 
   handleInputChange = event => {
     const { name, value } = event.target
@@ -42,36 +42,37 @@ class Edit extends Component {
   handleFormSubmit = event => {
     event.preventDefault()
 
-    const { imageUrl, name, gender, age, likes, dislikes, text } = this.state
-
-  }
-
-  dismissError = idx => {
-    const { errors } = this.state
-
-    errors.splice(idx, 1)
-
-    this.setState({ errors })
+    API.checkForSession()
+      .then( res => {
+        const id = res.data.user._id
+        const { imgUrl, firstName, gender, age, likes, dislikes, allergies } = this.state
+        return API.updateUser(id, { imgUrl, firstName, gender, age, likes, dislikes, allergies })
+      })
+      .then( res => {
+        console.log("updated")
+      })
+      .catch(() => {})
   }
 
   render() {
-    const { imageUrl, name, gender, age, likes, dislikes, text} = this.state
+    const { imgUrl, firstName, gender, age, likes, dislikes, allergies} = this.state
 
 
     return (
+
       <div clasName="container" fluid>
         <div className="row">
             <form>
               <Input
-                value={ imageUrl }
+                value={ imgUrl }
                 onChange={ this.handleInputChange }
-                name='imageUrl'
+                name='imgUrl'
                 placeholder='image URL'
               />
               <Input
-                value={ name }
+                value={ firstName }
                 onChange={ this.handleInputChange }
-                name='name'
+                name='firstName'
                 placeholder='name'
               />
               <Input
@@ -99,9 +100,9 @@ class Edit extends Component {
                 placeholder='dislikes'
               />
               <Input
-                value={ text }
+                value={ allergies }
                 onChange={ this.handleInputChange }
-                name='text'
+                name='allergies'
                 placeholder='text'
               />
               <FormBtn

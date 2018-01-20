@@ -46,12 +46,6 @@ module.exports = (app, passport) => {
   })
 
 
-  app.get('/auth/user_data', isAuthenticated, (req, res) => {
-    const { username } = req.user
-
-    res.json({ user: { username}})
-  })
-
   // Route for logging user out
   app.get('/logout', (req, res) => {
     req.logout()
@@ -61,9 +55,9 @@ module.exports = (app, passport) => {
 
   // Route for client to check if there's still a live server session
   app.get('/session', isAuthenticated, (req, res) => {
-    const { username} = req.user
+    const { username, _id } = req.user
 
-    res.json({ user: { username }})
+    res.json({ user: { username, _id }})
   })
 
 }
