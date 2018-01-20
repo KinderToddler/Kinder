@@ -4,25 +4,26 @@ import Profile from "../components/Profile/Profile";
 import Edit from "./Edit";
 import API from "../utils/API";
 import "./Home.css";
-import axios from "axios";
-
 
 class Home extends Component {
 
   constructor(props) {
     super(props)
-    console.log(props)
+    //console.log(props)
     this.state = {
+      imgUrl: "",
       firstName: "",
       lastName: "",
-      matches: "",
+      username: "",
+      gender: "",
+      age: "",      
+      height: "",
       likes: "",
       dislikes: "",
       allergies: "",
-      height: "",
-      age: "",
-      imgUrl: "",
-      email: ""
+      matches: "",
+      email: "",
+      _id: ""
     } 
   };
   // When the component mounts, load the profile information
@@ -34,32 +35,22 @@ class Home extends Component {
 
     API.checkForSession()
     .then( res => {
-      const user = res.data.user
-
-      console.log(user)
+      //const user = res.data.user
+      return API.getUser(res.data.user._id)
     })
+    .then( res=> {
+        //const { name, value } = res.data
+       //console.log(res.data)
+        this.setState(res.data)
+      })
     .catch(() => {})
 
   }
-
-    // axios.getUserData()
-    //   .then(user => {
-    //     console.log("user " , user)
-    //     this.setState({
-    //       // firstName: user.data.firstName,
-    //       // lastName: user.data.lastName,
-    //       // matches: user.data.matches,
-    //       // likes: user.data.likes,
-    //       // dislikes: user.data.dislikes,
-    //       // allergies: user.data.allergies,
-    //       // height: user.data.height,
-    //       // age: user.data.age,
-    //       // imgUrl: user.data.imgUrl,
-    //       // email: user.data.lastName,
-    //       username: user.data.username
-    //     })
-    //   })
-          
+    
+  // render() {
+  // if (this.state.editing) return <EditProfile userProfile={this.state.userProfile} />
+  // return <Profile/>
+  
         // <pre>
         //    { JSON.stringify(this.props, null, 2) }
         // </pre>

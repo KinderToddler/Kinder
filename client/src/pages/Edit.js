@@ -8,13 +8,17 @@ class Edit extends Component {
 
   state = {
       imgUrl: "",
-      firstName: "Alyssa",
-      age: 12,
-      gender: "neutral",
-      dislikes: "Pizza, ice cream",
-      likes: "dogs, slides",
-      allergies: "very allergic to peanuts. loves play time with water." 
-    
+      firstName: "",
+      lastName: "",
+      username: "",
+      gender: "",
+      age: "",   
+      height: "",
+      likes: "",      
+      dislikes: "",
+      allergies: "",
+      email: "",
+      _id: ""
   }
 
   componentDidMount() {
@@ -24,9 +28,9 @@ class Edit extends Component {
         return API.getUser(id)
       })
       .then( res => {
-        const { imgUrl, firstName, gender, age, likes, dislikes, allergies } = res.data
-        this.setState({ imgUrl, firstName, gender, age, likes, dislikes, allergies })
-
+        // const { imgUrl, firstName, lastName, username, gender, age, height, likes, dislikes, allergies, email } = res.data
+        // this.setState({ imgUrl, firstName, lastName, username, gender, age, height, likes, dislikes, allergies, email })
+        this.setState(res.data)
       })
       .catch(() => {})
   }
@@ -45,22 +49,24 @@ class Edit extends Component {
     API.checkForSession()
       .then( res => {
         const id = res.data.user._id
-        const { imgUrl, firstName, gender, age, likes, dislikes, allergies } = this.state
-        return API.updateUser(id, { imgUrl, firstName, gender, age, likes, dislikes, allergies })
+        const { imgUrl, firstName, lastName, username, gender, age, height, likes, dislikes, allergies, email } = this.state
+        return API.updateUser(id, { imgUrl, firstName, lastName, username, gender, age, height, likes, dislikes, allergies, email })
       })
       .then( res => {
         console.log("updated")
+        
       })
       .catch(() => {})
   }
 
   render() {
-    const { imgUrl, firstName, gender, age, likes, dislikes, allergies} = this.state
+    const { imgUrl, firstName, lastName, username, gender, age, height, likes, dislikes, allergies, email} = this.state
 
 
     return (
 
       <div clasName="container" fluid>
+        
         <div className="row">
             <form>
               <Input
@@ -76,6 +82,18 @@ class Edit extends Component {
                 placeholder='name'
               />
               <Input
+                value={ lastName }
+                onChange={ this.handleInputChange }
+                name='lastName'
+                placeholder='name'
+              />
+              <Input
+                value={ username }
+                onChange={ this.handleInputChange }
+                name='username'
+                placeholder='username'
+              />
+              <Input
                 value={ gender }
                 onChange={ this.handleInputChange }
                 name='gender'
@@ -86,6 +104,12 @@ class Edit extends Component {
                 onChange={ this.handleInputChange }
                 name='age'
                 placeholder='age'
+              />
+              <Input
+                value={ height }
+                onChange={ this.handleInputChange }
+                name='height'
+                placeholder='height'
               />
               <Input
                 value={ likes }
@@ -103,7 +127,13 @@ class Edit extends Component {
                 value={ allergies }
                 onChange={ this.handleInputChange }
                 name='allergies'
-                placeholder='text'
+                placeholder='allergies'
+              />
+              <Input
+                value={ email }
+                onChange={ this.handleInputChange }
+                name='email'
+                placeholder='email address'
               />
               <FormBtn
                 onClick={ this.handleFormSubmit }
