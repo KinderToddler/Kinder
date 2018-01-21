@@ -17,17 +17,23 @@ class Past extends Component {
   }
 
   fetchMatches() {
-    API.getUser("5a5d6ca179fe869a42e7fe5d")
-      .then(user => {
-        // console.log(user)
-        const friendsArray = user.data.matches.map(match => match)
-        console.log("friendsArray", friendsArray)
-        this.setState({Friends: friendsArray})
-          })
+    API.checkForSession()
+      .then( res => {
+        const id = res.data.user._id
+        return API.getUser(id)
+      })
+      .then( res => {
+        // const { imgUrl, firstName, lastName, username, gender, age, height, likes, dislikes, allergies, email } = res.data
+        // this.setState({ imgUrl, firstName, lastName, username, gender, age, height, likes, dislikes, allergies, email })
+        this.setState({Friends: res.data.matches})
+        console.log("heres state: ", this.state)
+      })
+      .catch(() => {})
       
   }   
                 
     render() {
+      
       return (
         <div className="past-matches">
             <h1>past matches</h1>
