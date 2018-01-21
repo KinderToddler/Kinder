@@ -13,42 +13,44 @@ import API from "./utils/API";
 
 
 class App extends Component {
-  // state = {
-  //   loggedIn: "",
-  // }
+  state = {loggedIn: ''}
 
-  //   // When the component mounts, load the profile information
-  // componentDidMount() {
-  //   this.fetchProfile();
-  // }
+    // When the component mounts, load the profile information
+  componentDidMount() {
+    this.fetchProfile();
+  }
 
-  // fetchProfile() {
-    
-  //   API.checkForSession()
-  //   .then( res => {
-  //     console.log(res.data)
-      
-  //     if(res.data){
-  //       console.log("state", this.state)
-  //       this.setSate({loggedIn: 1})
-  //       console.log("state change")
-  //     } 
-  //   })
-  //   .catch(() => {})
+  fetchProfile() {
+    API.checkForSession()
+    .then( res => {
+      console.log(res.data.user)
+      if(res.data.user){
+        console.log(this.state)
+        this.setState({loggedIn: true})
+      } 
+    })
+    .catch(() => {})
 
-  // }
+  }
+// render() {
+//   // if (this.state.editing) 
+//     return ( 
+//     <Router>
+//     <div>
+//     <pre>
+//            { JSON.stringify(this.state, null, 2) }
+//     </pre>
+//     </div>
+//   </Router>)
 
-  // render() {
-  // if (this.state.editing) return <EditProfile userProfile={this.state.userProfile} />
-  // return <Profile/>
-
+// }        
+// <pre>
+        //    { JSON.stringify(this.state, null, 2) }
+        // </pre>
   render() {
     return (
       <Router>
         <div className="App">
-        <pre>
-           { JSON.stringify(this.state, null, 2) }
-        </pre>
           <Nav />
           <Wrapper>
             <Route exact path="/" component={Login} />
