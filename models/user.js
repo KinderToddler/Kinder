@@ -1,5 +1,7 @@
 
 var mongoose = require("mongoose");
+var bcrypt = require("bcrypt")
+var SALT_WORK_FACTOR = 10
 
 // Save a reference to the Schema constructor
 var Schema = mongoose.Schema;
@@ -60,9 +62,32 @@ var UserSchema = new Schema({
 
 });
 
-  UserSchema.methods.validPassword = function( pwd ) {
-    return ( this.password === pwd );
+  UserSchema.methods.validPassword = function( password ) {
+    return bcrypt.compareSync(password, this.password)
   };
+
+  UserSchema.pre('save', function(next) {
+    var user = this;
+
+    // only hash the password if it has been modified (or is new)
+    if (!user.isModified('password')) return next();
+
+    // generate a salt
+    bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
+        if (err) return next(err);
+
+        // hash the password along with our new salt
+        bcrypt.hash(user.password, salt, function(err, hash) {
+            if (err) return next(err);
+
+            // override the cleartext password with the hashed one
+            user.password = hash;
+            next();
+        });
+    });
+
+
+  });
 
 // This creates our model from the above schema, using mongoose's model method
 var User = mongoose.model("User", UserSchema);
