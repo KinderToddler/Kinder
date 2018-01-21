@@ -22,6 +22,8 @@ class Match extends Component {
         this.setState(res.data)
       })
       .catch(() => {})
+
+    this.getAllUsers()
   }
 
   handleInputChange = event => {
@@ -31,6 +33,28 @@ class Match extends Component {
     })
   }
 
+  getAllUsers = () => {
+
+    API.getAllUsers()
+    .then(res =>{
+      console.log(res)
+    })
+
+  }
+
+  createAMatch = () => {
+
+    // matchObj = {
+    //   _id: "",
+    //   match_id: ""
+    // }
+
+    // API.createAMatch(matchObj)
+    //   .then(res => {
+    //     console.log(res)
+    //   })
+
+  }
 
 
   render() {

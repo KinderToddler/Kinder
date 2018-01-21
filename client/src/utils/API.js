@@ -9,6 +9,9 @@ export default {
   getUser: function(id) {
     return axios.get("/api/user/" + id);
   },
+  getAllUsers: function(){
+    return axios.get("/api/user")
+  },
   createUser: function(user){
     return axios.post("/auth/signup", user)
   },
@@ -18,4 +21,8 @@ export default {
     return axios.post("/auth/login", user)
   },
   checkForSession: credentials => ( axios.get('/session') )
+  ,
+  createAMatch: (matchesObj) => {
+    axios.post("/api/user/match", matchesObj)
+  }
 };
