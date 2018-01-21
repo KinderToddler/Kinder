@@ -47,9 +47,9 @@ module.exports = (app, passport) => {
 
 
   // Route for logging user out
-  app.get('/logout', (req, res) => {
+  app.get('/auth/logout', (req, res) => {
     req.logout()
-    res.send({})
+    res.send({redirectTo: '/'})
   })
 
 

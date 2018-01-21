@@ -33,7 +33,7 @@ const Nav = props =>(
           <Link to="/past">Past Matches</Link>
         </li>
         <li className={window.location.pathname === "/logout" ? "active" : "logout"}>
-          <Link to="/">LogOut</Link>
+          <Link to="/logout">LogOut</Link>
         </li>
       </ul>
     </div>

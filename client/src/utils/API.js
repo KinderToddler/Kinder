@@ -23,6 +23,9 @@ export default {
   checkForSession: credentials => ( axios.get('/session') )
   ,
   createAMatch: (matchesObj) => {
-    axios.post("/api/user/match", matchesObj)
+    return axios.post("/api/user/match", matchesObj)
+  },
+  logUserOut: credentials => {
+    return axios.get("/auth/logout")
   }
 };
