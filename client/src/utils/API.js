@@ -18,7 +18,7 @@ export default {
   updateUser: (id, user) => (axios.put("/api/user/" + id, user))
   ,
   loginUser: function(user){
-    return axios.post("/auth/login", user)
+   return axios.post("/auth/login", user)
   },
   checkForSession: credentials => ( axios.get('/session') )
   ,

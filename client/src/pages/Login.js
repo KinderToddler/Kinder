@@ -6,6 +6,7 @@ import { Input, FormBtn } from '../components/Form'
 // import ErrorDisplay from '../../components/ErrorDisplay'
 import './Login.css'
 import API from "../utils/API";
+import authState from '../utils/authinterface.js'
 
 
 class Login extends Component {
@@ -59,26 +60,15 @@ class Login extends Component {
     }
     else {
       API.loginUser(user)
-      .then(function(user){
-        console.log(user)
+      .then(function(res){
+        console.log(res)
+        if (res.data.user._id) {
+          authState.loggedIn = true
+        }
       })
       .catch(console.error)
     }
 
-
-    // API[ authMethod ]({ username, password })
-    //   .then( res => {
-    //     const { errors, user } = res.data
-
-    //     if ( errors ) {
-    //       return this.setState({ errors })
-    //     }
-
-    //     AuthInterface.login( user )
-    //     this.setState({ loggedIn: true })
-
-    //   })
-    //   .catch(console.error)
   }
 
   dismissError = idx => {
