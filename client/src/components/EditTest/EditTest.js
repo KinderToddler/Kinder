@@ -12,9 +12,8 @@ class EditTest extends Component {
      super(props)
   }
 
-   state = {}
+  state = {}
   
-
   componentDidMount() {
     this.fetchProfile();
     console.log(this.props)
@@ -40,17 +39,19 @@ class EditTest extends Component {
   } 
 
   onButtonClick = (event) => {
+    console.log(event)
     event.preventDefault()
     this.props.childOnSubmit(this.state)
   }
+
+   // <pre className="test">
+   //  { JSON.stringify(this.state, null, 2) }
+   // </pre>
 
   render() {
     return (
 
     <div className="container" fluid>
-     <pre className="test">
-      { JSON.stringify(this.state, null, 2) }
-     </pre>
         <div className="row">
             <form>
               <Input
