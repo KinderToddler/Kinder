@@ -12,7 +12,9 @@ import Text from "../Text/Text";
 
 const Profile = (props) =>(
   <div className="profile-container">
-
+    <pre>
+      { JSON.stringify(props, null, 2) }
+    </pre>
     <ProfilePic img={props.profile.imgUrl} />
     <div className="user-info">
         <div className="user-name">

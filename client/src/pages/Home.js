@@ -10,7 +10,6 @@ class Home extends Component {
 
   constructor(props) {
     super(props)
-    //console.log(props)
     this.state = {
       imgUrl: "",
       firstName: "",
@@ -27,6 +26,7 @@ class Home extends Component {
       _id: ""
     } 
   };
+
   // When the component mounts, load the profile information
   componentDidMount() {
     this.fetchProfile();
@@ -36,43 +36,36 @@ class Home extends Component {
 
     API.checkForSession()
     .then( res => {
-       //const user = res.data.user
       return API.getUser(res.data.user._id)
     })
     .then( res=> {
-        //const { name, value } = res.data
-       //console.log(res.data)
         this.setState(res.data)
       })
     .catch(() => {})
 
   }
    
-
-  handleFormSubmit = email => {
-    console.log("submitted email on home:", email)
-    this.setState({email}, () => {
-    API.updateUser(this.state._id,  this.state)
+  handleFormSubmit = (profile) => {
+    console.log("handleFormSubnit ", profile)
+    const { name, value } = profile
+    this.setState({[name]: value})
+    console.log("handleFormSubnit- setState ", this.state)
+    API.updateUser(this.state._id, this.state)
       .then( res => {
         console.log(res)
       })
-      .catch(() => {})})
+      .catch(() => {})
   }
-
-  // render() {
-  // if (this.state.editing) return <EditProfile userProfile={this.state.userProfile} />
-  // return <Profile/>
-  
-        // <pre>
-        //    { JSON.stringify(this.props, null, 2) }
-        // </pre>
-        
+      
+      //   <pre>
+      //    { JSON.stringify(this.state, null, 2) }
+      // </pre>
   render() {
     return (
       <div>
-        <Profile profile={ this.state } />
-        <EditTest profile={ this.state } email={ this.state.email } childOnSubmit= {this.handleFormSubmit}/>
-        <Route exact path={this.props.match.url + '/edit'} component={Edit} /> 
+      <Profile profile={ this.state } />
+      <EditTest editProfile={ this.state } email={ this.state.email } childOnSubmit={this.handleFormSubmit}/>
+      <Route exact path={this.props.match.url + '/edit'} component={Edit} />
       </div>
     );
   }
