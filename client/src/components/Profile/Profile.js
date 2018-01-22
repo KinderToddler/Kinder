@@ -12,7 +12,6 @@ import Text from "../Text/Text";
 
 const Profile = (props) =>(
   <div className="profile-container">
-
     <ProfilePic img={props.profile.imgUrl} />
     <div className="user-info">
         <div className="user-name">

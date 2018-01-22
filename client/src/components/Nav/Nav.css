@@ -5,7 +5,8 @@ ul {
   margin-right: 5%;
   padding: 0;
   overflow: hidden;
-  background-color: #f5db8d;
+  background-color: #f1d15e;
+  color: #d73725;
 }
 
 
@@ -17,7 +18,7 @@ li {
   font-size: 1.5em;
   transform: rotate(-5deg);
   display: block;
-  color: #b1412a;
+  color: #d73725;
   text-align: center;
   padding: 35px 28px;
   text-decoration: none;
@@ -25,7 +26,7 @@ li {
 
 .nav>li>a:focus, .nav>li>a:hover {
   color: #c9a7a0;
-  background-color: #f5db8d;
+  background-color: #f1d15e;
   transform: rotate(-17deg);
 }
 
@@ -38,7 +39,6 @@ li {
   font-size: 2.5em;
   transform: rotate(-7deg);
   display: block;
-  color: #b1412a;
   text-align: center;
   padding: 20px 28px;
 }
@@ -47,8 +47,11 @@ li {
   -webkit-box-shadow: 0px 5px 11px 0px #747171;
   box-shadow: 0px 5px 11px 0px #747171;
   min-height: 100px;
-  background-color: #f5db8d;
-  margin-bottom: 0px; 
+  background-color: #f1d15e;
+  margin-bottom: 0px;
+  border-style: solid;
+  border-color: #d73725;
+
 }
 
 

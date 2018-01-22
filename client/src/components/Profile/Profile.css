@@ -1,12 +1,20 @@
 .profile-container {
   max-width: 70%;
-  background-color: #aacee2;
-  display: flex;
-  margin: auto;
-  margin-top: 30px;
+  background-color: #f1d15e;
+  display: block;
+  align-items: center;
+  margin: 30px auto 30px auto;
+  border-style: solid;
+  border-color: #d73725;
+  height: 70vh;
 }
 
 .user-info{
   background-color: white;
-  display: block;
+  display: inline-flex;
+}
+
+.user-name {
+  border-color: black;
+  border-style: solid;
 }
