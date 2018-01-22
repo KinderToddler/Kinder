@@ -7,67 +7,56 @@ import API from "../utils/API"
 class Match extends Component {
 
   state = {
-    users: []
+    Users: [],
   }
 
 
   // When the component mounts, load the profile information
   componentDidMount() {
-    API.checkForSession()
-      .then( res => {
-        const id = res.data.user._id
-        return API.getUser(id)
-      })
-      .then( res => {
-        this.setState(res.data)
-      })
-      .catch(() => {})
-
     this.getAllUsers()
   }
 
-  handleInputChange = event => {
-    const { name, value } = event.target
-    this.setState({
-      [name]: value
-    })
-  }
 
   getAllUsers = () => {
-
     API.getAllUsers()
-    .then(res =>{
-      console.log(res)
+    .then(res => {
+      console.log(res.data)
+      // const userArray = res.data.map(profile => profile)
+      // console.log("this is array", userArray)
+      this.setState({Users: res.data})
+      console.log("this is state", this.state)
     })
-
   }
 
+
   createAMatch = () => {
-
-    // matchObj = {
-    //   _id: "",
-    //   match_id: ""
-    // }
-
-    // API.createAMatch(matchObj)
-    //   .then(res => {
-    //     console.log(res)
-    //   })
-
+    let newMatch = {
+      id: "5a652136f34a5b05c4fd9e25",
+      match_id: "5a6520f9f34a5b05c4fd9e24"
+    }
+    API.createAMatch(newMatch)
+      .then(res => {
+        console.log(res.data)
+      })
   }
 
 
   render() {
 
     return (
-      <div>
-     <Profile profile={this.state} />
- 
+      <div className="find-match">
+        <h1>Find A Playdate!</h1>
+        { this.state.Users.map(profile => {
+          return <Profile profile={ profile } 
+          />
+        }) }
+          <div className="yesBtn">
+            <button onClick={this.createAMatch}> Yes </button>
+          </div>
       </div>
     )
   }
 }
 
 export default Match;
-
 
