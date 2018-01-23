@@ -23,7 +23,7 @@ const Nav = props =>(
         </li>
         <li
           className={window.location.pathname === "home/edit" ? "active" : ""}>
-          <Link to="/home/edit">Edi Profile</Link>
+          <Link to="/home/edit">Edit Profile</Link>
         </li>
         <li
           className={window.location.pathname === "/match" ? "active" : ""}>
