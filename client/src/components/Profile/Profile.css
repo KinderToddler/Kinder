@@ -16,7 +16,7 @@
   display: inline-flex;
   float: right;
   align-items: center;
-  margin: 20px auto 30px auto;
+  margin: 10px auto 30px auto;
   border-style: solid;
   border-color: #d73725;
   flex-wrap: wrap;
@@ -33,7 +33,7 @@
 
 .user-info {
   padding: 5px;
-  margin: 20px;
+  margin: 10px;
   border: solid;
   border-width: 1px;
   border-color: #fdda6f;
