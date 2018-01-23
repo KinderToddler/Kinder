@@ -10,6 +10,7 @@ import "./EditTest.css"
 class EditTest extends Component {
 
   constructor(props) {
+    console.log(props)
      super(props)
   }
 

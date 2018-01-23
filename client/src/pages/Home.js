@@ -51,7 +51,7 @@ class Home extends Component {
 
           () => {
               API.updateUser(this.state._id, this.state)
-                  .then(res => {
+                  .then(res => { 
                       console.log("user updated ", res)
                   })
                   .catch(() => {
@@ -62,15 +62,19 @@ class Home extends Component {
     }
     //   <pre>
     //    { JSON.stringify(this.state, null, 2) }
-    // </pre>
+    // </pre>            
     render() {
         return ( 
           <div className="home-container">
             <Profile profile = { this.state }/> 
-            <EditTest editProfile = { this.state } email = { this.state.email } childOnSubmit = {
-                (profile) => this.handleFormSubmit(profile) }
+            <Route exact
+              path = { this.props.match.url + '/edit' }
+              render={ () => (
+                <EditTest editProfile = { this.state } email = { this.state.email } childOnSubmit = {
+                          (profile) => this.handleFormSubmit(profile) }
+                />
+              )}
             /> 
-            <Route exact path = { this.props.match.url + '/edit' } component = { Edit }/> 
           </div>
         );
     }
