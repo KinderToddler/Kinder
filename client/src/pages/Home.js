@@ -65,7 +65,7 @@ class Home extends Component {
     // </pre>
     render() {
         return ( 
-          <div>
+          <div className="home-container">
             <Profile profile = { this.state }/> 
             <EditTest editProfile = { this.state } email = { this.state.email } childOnSubmit = {
                 (profile) => this.handleFormSubmit(profile) }

@@ -4,6 +4,7 @@ import API from "../../utils/API";
 import { Redirect } from 'react-router-dom';
 import { Input, FormBtn } from '../Form';
 import Home from "../../pages/Home";
+import "./EditTest.css"
 
 
 class EditTest extends Component {
@@ -50,10 +51,9 @@ class EditTest extends Component {
 
   render() {
     return (
-
-    <div className="container" fluid>
-        <div className="row">
-            <form>
+    <div className="edit-profile, container" fluid>
+        <div className="form-container, row">
+            <form className="profile-form">
               <Input
                 value={ this.state.imgUrl }
                 onChange={ this.onEditChange }
@@ -79,22 +79,22 @@ class EditTest extends Component {
                 placeholder='username'
               />
               <Input
-                value={ this.state.gender }
-                onChange={ this.onEditChange }
-                name='gender'
-                placeholder='gender'
-              />
-              <Input
-                value={ this.state.age }
-                onChange={ this.onEditChange }
-                name='age'
-                placeholder='age'
+                value={ this.state.email }
+                onChange={ this.onEditChange}
+                name='email'
+                placeholder='email address'
               />
               <Input
                 value={ this.state.height }
                 onChange={ this.onEditChange }
                 name='height'
                 placeholder='height'
+              />
+              <Input
+                value={ this.state.age }
+                onChange={ this.onEditChange }
+                name='age'
+                placeholder='age'
               />
               <Input
                 value={ this.state.likes }
@@ -114,20 +114,13 @@ class EditTest extends Component {
                 name='allergies'
                 placeholder='allergies'
               />
-              <Input
-                value={ this.state.email }
-                onChange={ this.onEditChange}
-                name='email'
-                placeholder='email address'
-              />
               <FormBtn
                 onClick={ this.onButtonClick }
               >
+              Done
               </FormBtn>
             </form>
-
         </div>
-
       </div>
     )
   }

@@ -1,0 +1,29 @@
+.container {
+  max-width: 40%;
+  background-color: white;
+  margin: 20px auto 30px auto;
+
+}
+
+.wrapper > .edit-profile {
+  border-style: solid;
+  border-color: black;
+}
+.edit-profile, .container {
+  padding: 20px;
+  border-style: solid;
+  border-color: #d73725;
+  border-width: 3px;
+  background-color: #fdda6f;
+}
+
+.edit-profile > .formcontainer, .row {
+  width: 70%;
+  margin: auto;
+  margin-top: 117px;
+  border-style: solid;
+  border-color: #d73725;
+  padding: 20px;
+  background-color: white;
+}
+
