@@ -7,5 +7,12 @@ font-family: 'Freckle Face', cursive;
 font-family: 'Itim', cursive;
 font-family: 'Give You Glory', cursive;
 font-family: 'Kranky', cursive;
-font-family: 'Swanky and Moo Moo', cursive;
-font-family: 'Snowburst One', cursive;*/
+font-family: 'Swanky and Moo Moo', cursive;*/
+
+.home-container {
+  display: flex;
+  padding-top: 50px;
+  min-height: 100vh;
+  background-color: #a5d4ec;
+  background-image: url("https://lh4.googleusercontent.com/5xGwm6jdRDtmnPk5egetx1wl_rQvbv46JPEaFaMwRRjXUkKS2R-zIlQm9dzjjOtjoOTt97kyt_Vf7BZXjGq_=w2858-h1860");
+}

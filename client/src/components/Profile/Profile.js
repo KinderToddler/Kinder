@@ -13,31 +13,33 @@ import Text from "../Text/Text";
 const Profile = (props) =>(
   <div className="profile-container">
     <ProfilePic img={props.profile.imgUrl} />
-    <div className="user-info">
-        <div className="user-name">
+    <div className="user-info-container">
+        <div className="user-info">
             First Name: <Name name={props.profile.firstName} />
+        </div>        
+        <div className="user-info">
             Last Name: <Name name={props.profile.lastName} />
         </div>
-        <div className="user-name">  
+        <div className="user-info">  
             Username: <Name name={props.profile.username} />
         </div>
-        <div className="user-email">  
+        <div className="user-info">  
             Email: <Name name={props.profile.email} />
         </div>
-        <div className="user-height">
-            Height: <Height height={props.profile.height} />
+        <div className="user-info">
+            Height: <Name name={props.profile.height} />
          </div>
-        <div className="user-age">
-            Age: <Age age={props.profile.age} />
+        <div className="user-info">
+            Age: <Name name={props.profile.age} />
         </div>
-        <div className="user-likes">   
-            Likes: <Text text={props.profile.likes} />
+        <div className="user-info">   
+            Likes: <Name name={props.profile.likes} />
         </div>
-        <div className="user-dislikes">   
-            Dislikes: <Text text={props.profile.dislikes} />
+        <div className="user-info">   
+            Dislikes: <Name name={props.profile.dislikes} />
         </div>
-        <div className="user-allergies">  
-            Allergies: <Text text={props.profile.allergies} />
+        <div className="user-info">  
+            Allergies: <Name name={props.profile.allergies} />
         </div>
     </div>
   </div>  

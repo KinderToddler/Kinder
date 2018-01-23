@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import { Link, Route } from "react-router-dom";
-import Profile from "../components/Profile/Profile";
+import Card from "../components/Card/Card";
 import Thumbnail from "../components/Thumbnail/Thumbnail";
 import API from "../utils/API"
 
@@ -48,11 +48,11 @@ class Match extends Component {
 
     return (
       <div className="find-match">
-        <h1>Find A Playdate!</h1>
+        <h1 className="text-center">Find A Playdate!</h1>
         { this.state.Users.map(profile => {
           return (
             <div>
-              <Profile profile={ profile } /> 
+              <Card profile={ profile } /> 
               <div className="yesBtn">
                 <button onClick={this.createAMatch} id= {profile._id}> Yes </button>
               </div>
