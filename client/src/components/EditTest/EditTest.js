@@ -55,60 +55,70 @@ class EditTest extends Component {
     <div className="edit-profile, container" fluid>
         <div className="form-container, row">
             <form className="profile-form">
+            image URL:
               <Input
                 value={ this.state.imgUrl }
                 onChange={ this.onEditChange }
                 name='imgUrl'
                 placeholder='image URL'
               />
+              First Name: 
               <Input
                 value={ this.state.firstName }
                 onChange={ this.onEditChange }
                 name='firstName'
                 placeholder='name'
               />
+              Last Name: 
               <Input
                 value={ this.state.lastName }
                 onChange={ this.onEditChange }
                 name='lastName'
                 placeholder='name'
               />
+              User Name:
               <Input
                 value={ this.state.username }
                 onChange={ this.onEditChange }
                 name='username'
                 placeholder='username'
               />
+              Email: 
               <Input
                 value={ this.state.email }
                 onChange={ this.onEditChange}
                 name='email'
                 placeholder='email address'
               />
+              Height:
               <Input
                 value={ this.state.height }
                 onChange={ this.onEditChange }
                 name='height'
                 placeholder='height'
               />
+              Age:
               <Input
                 value={ this.state.age }
                 onChange={ this.onEditChange }
                 name='age'
                 placeholder='age'
               />
+              likes:
               <Input
                 value={ this.state.likes }
                 onChange={ this.onEditChange }
                 name='likes'
                 placeholder='likes'
               />
+              Dislikes:
               <Input
                 value={ this.state.dislikes }
                 onChange={ this.onEditChange }
                 name='dislikes'
                 placeholder='dislikes'
               />
+              Allergies:
               <Input
                 value={ this.state.allergies }
                 onChange={ this.onEditChange }
