@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 // import { Link, Route } from "react-router-dom";
 import Card from "../components/Card/Card";
-import Thumbnail from "../components/Thumbnail/Thumbnail";
 import API from "../utils/API"
 
 class Match extends Component {

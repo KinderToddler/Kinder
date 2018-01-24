@@ -30,7 +30,7 @@ const Nav = props =>(
           <Link to="/match">Find Match</Link>
         </li>
         <li className={window.location.pathname === "/past" ? "active" : ""}>
-          <Link to="/past">Past Matches</Link>
+          <Link to="/past">Matches</Link>
         </li>
         <li className={window.location.pathname === "/logout" ? "active" : "logout"}>
           <Link to="/logout">LogOut</Link>

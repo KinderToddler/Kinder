@@ -10,7 +10,7 @@ import Login from './pages/Login';
 import Logout from './pages/Logout';
 import Past from './pages/Past';
 import PrivateRoute from './utils/privateroute.js'
-import API from "./utils/API";
+
 
 
 class App extends Component {
