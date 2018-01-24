@@ -47,7 +47,7 @@ class Login extends Component {
       password: this.state.password
     }
 
-    // if ( !(username && password) ) return
+    if ( !(user.username && user.password) ) return
 
     // const authMethod = newUser ? 'signup' : 'login'
 
