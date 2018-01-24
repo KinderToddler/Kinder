@@ -64,10 +64,11 @@ class Login extends Component {
     else {
       API.loginUser(user)
       .then(function(res){
-        console.log(res)
+        console.log(res.data)
         if (res.data.user._id) {
           authState.loggedIn = true
         }
+        this.setState({loggedIn: authState.loggedIn})
       })
       .catch(console.error)
     }
@@ -79,7 +80,7 @@ class Login extends Component {
 
     errors.splice(idx, 1)
 
-    this.setState({ errors })
+    this.setState({ errors }, console.log("erroooooosss"))
   }
 
   render() {
@@ -87,9 +88,10 @@ class Login extends Component {
 
     if ( loggedIn ) {
       return (
-        <Redirect to='/home' />
+        <Redirect to='/home/' />
       )
     }
+    
 
     return (
       <div id="login-container" className="container-fluid">
