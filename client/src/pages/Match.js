@@ -8,7 +8,8 @@ class Match extends Component {
 
   state = {
     Users: [],
-    id: undefined
+    id: undefined,
+    activeIndex: -1
   }
 
 
@@ -16,13 +17,15 @@ class Match extends Component {
   componentDidMount() {
     this.getAllUsers()
     this.getID()
+    
   }
 
 
   getAllUsers = () => {
     API.getAllUsers()
     .then(res => {
-      this.setState({Users: res.data})
+      this.setState({Users: res.data, activeIndex: 0},
+        () => console.log("STATE: ", this.state))
     })
   }
 
@@ -41,25 +44,30 @@ class Match extends Component {
     }
     API.createAMatch(newMatch)
       .then(res => {
+        this.setState({activeIndex: this.state.activeIndex + 1})
       })
   }
+
   
   render() {
-
+    console.log("rendering")
+    console.log("users:", this.state.Users)
+    console.log("activeIndex:", this.state.activeIndex)
     return (
       <div className="find-match">
         <h1 className="text-center">Find A Playdate!</h1>
-        { this.state.Users.map(profile => {
-          return (
             <div>
-              <Card profile={ profile } /> 
-              <div className="yesBtn">
-                <button onClick={this.createAMatch} id= {profile._id}> Yes </button>
-              </div>
-            </div>
-            )
-        }) }
-
+             {this.state.Users.length == 0
+             ? (<p>"no matches!"</p>)
+              : (
+                <div>
+                  <Card profile={this.state.Users[this.state.activeIndex]} />
+                  <div className="yesBtn">
+                    <button onClick={this.createAMatch} id= {this.state.Users[this.state.activeIndex]._id}> Yes </button>
+                  </div>
+                </div>)
+            }
+            </div> 
       </div>
     )
   }
