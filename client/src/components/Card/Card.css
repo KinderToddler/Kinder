@@ -1,0 +1,17 @@
+.card-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+  border-style: solid;
+  border-color: #d73725;
+  border-width: 3px;
+  background-color: #fdda6f;
+  -webkit-box-shadow: 12px 12px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+  box-shadow: 12px 12px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+  font-family: 'Gloria Hallelujah', cursive;
+}
+.user-info-container {
+  margin-bottom: 30px;
+  margin-top: 10px;
+}

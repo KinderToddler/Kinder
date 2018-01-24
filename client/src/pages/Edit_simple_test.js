@@ -43,7 +43,7 @@ import { Input, FormBtn } from '../components/Form'
 
   const Edit = (props) => (
 
-      <div clasName="container" fluid>
+      <div className="container-fluid">
         
         <div className="row">
             <form>

@@ -51,7 +51,8 @@ li {
   margin-bottom: 0px;
   border-style: solid;
   border-color: #d73725;
-
+  position: absolute;
+  top: 0px;
 }
 
 

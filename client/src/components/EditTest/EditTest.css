@@ -9,12 +9,15 @@
   border-color: black;
 }
 .edit-profile, .container {
+  font-size: 18px;
   padding: 20px;
   border-style: solid;
   border-color: #d73725;
   border-width: 3px;
   background-color: #fdda6f;
   font-family: 'Gloria Hallelujah', cursive;
+  -webkit-box-shadow: 12px 12px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+  box-shadow: 12px 12px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
 }
 
 .edit-profile > .formcontainer, .row {
@@ -26,4 +29,3 @@
   padding: 20px;
   background-color: white;
 }
-

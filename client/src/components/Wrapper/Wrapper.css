@@ -1,5 +1,6 @@
 .wrapper {
   min-height: 100hv;
   margin-top: 0px;
-  background-image: url("https://lh4.googleusercontent.com/5xGwm6jdRDtmnPk5egetx1wl_rQvbv46JPEaFaMwRRjXUkKS2R-zIlQm9dzjjOtjoOTt97kyt_Vf7BZXjGq_=w2858-h1860");
+  background-image: url("/background.png");
+  background-color: #a5d4ec;
 }

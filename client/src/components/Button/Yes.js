@@ -1,10 +1,10 @@
 import React from "react";
-import "./YesButton.css";
+import "./Button.css";
 
-const Button.yes = (props) =>(
+const Yes = (props) =>(
   <div className="swipe, right">
     <button id= {props._id}> Yes </button>
   </div>
 );
 
-export default YesButton;
+export default Yes;

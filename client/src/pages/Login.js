@@ -15,21 +15,24 @@ class Login extends Component {
     username: '',
     password: '',
     newUser: false,
-    loggedIn: false
+    loggedIn: false,
+    errors: ''
   }
 
-  // componentDidMount() {
-  //   API.checkForSession()
-  //     .then( res => {
-  //       const { user } = res.data
+  componentDidMount() {
 
-  //       if ( user ) {
-  //         AuthInterface.login( user )
-  //         this.setState({ loggedIn: true })
-  //       }
-  //     })
-  //     .catch(() => {})
-  // }
+    // API.checkForSession()
+    //   .then( res => {
+    //     const { user } = res.data
+    //     if ( user ) {
+    //       AuthInterface.login( user )
+    //       this.setState({ loggedIn: true }, console.log(this.state.loggedIn))
+    //     }
+    //   })
+    //   .catch(() => {
+    //     this.setState({ loggedIn: true }, console.log("you're logged out"))
+    //   })
+  }
 
   handleInputChange = event => {
     const { name, value } = event.target
@@ -84,12 +87,12 @@ class Login extends Component {
 
     if ( loggedIn ) {
       return (
-        <Redirect to='/' />
+        <Redirect to='/home' />
       )
     }
 
     return (
-      <div id="login-container" clasName="container" fluid>
+      <div id="login-container" className="container-fluid">
         <div className="row">
           <div className="col-md-3"></div>
           <div className="col-md-6">
@@ -136,7 +139,7 @@ class Login extends Component {
 
             </form>
           </div>  
-          <div clasName="col-md-3"></div>
+          <div className="col-md-3"></div>
         </div>
       </div>
     )
