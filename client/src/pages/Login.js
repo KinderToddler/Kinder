@@ -1,6 +1,5 @@
 
 import React, { Component } from 'react'
-// import AuthInterface from '../../utils/AuthInterface'
 import { Redirect } from 'react-router-dom'
 import { Input, FormBtn } from '../components/Form'
 // import ErrorDisplay from '../../components/ErrorDisplay'
@@ -15,23 +14,25 @@ class Login extends Component {
     username: '',
     password: '',
     newUser: false,
-    loggedIn: false,
+    loggedIn: "",
     errors: ''
   }
 
   componentDidMount() {
 
-    // API.checkForSession()
-    //   .then( res => {
-    //     const { user } = res.data
-    //     if ( user ) {
-    //       AuthInterface.login( user )
-    //       this.setState({ loggedIn: true }, console.log(this.state.loggedIn))
-    //     }
-    //   })
-    //   .catch(() => {
-    //     this.setState({ loggedIn: true }, console.log("you're logged out"))
-    //   })
+    API.checkForSession()
+      .then( res => {
+        const { user } = res.data
+        if ( user ) {
+          console.log(user)
+          // authState.loggedIn = true;
+          // authState.loggedIn( user )
+          // this.setState({ loggedIn: true }, console.log(this.state.loggedIn))
+        }
+      })
+      .catch(() => {
+        this.setState({ loggedIn: false }, console.log("you're logged out"))
+      })
   }
 
   handleInputChange = event => {
@@ -43,6 +44,7 @@ class Login extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault()
+
 
     // const { username, password, newUser } = this.state
     let user = {
@@ -67,9 +69,9 @@ class Login extends Component {
         console.log(res.data)
         if (res.data.user._id) {
           authState.loggedIn = true
+          this.setState({loggedIn: true}, console.log(this.state.loggedIn))
         }
-        this.setState({loggedIn: authState.loggedIn})
-      })
+      }.bind(this))
       .catch(console.error)
     }
 
@@ -88,7 +90,7 @@ class Login extends Component {
 
     if ( loggedIn ) {
       return (
-        <Redirect to='/home/' />
+        <Redirect to='/Home' />
       )
     }
     
