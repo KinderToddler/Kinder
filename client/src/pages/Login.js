@@ -32,11 +32,11 @@ class Login extends Component {
   }
 
 
-  componentDidMount() {
-    if (authState.loggedIn === true){
-      this.setState({loggedIn: true})
-    }
-  }
+  // componentDidMount() {
+  //   if (authState.loggedIn === true){
+  //     this.setState({loggedIn: true})
+  //   }
+  // }
 
   handleInputChange = event => {
     const { name, value } = event.target
