@@ -63,7 +63,7 @@ class Home extends Component {
     //    { JSON.stringify(this.state, null, 2) }
     // </pre>            
     render() {
-        return ( 
+        return (
           <div className="home-container">
             <Profile profile = { this.state }/> 
             <Route exact
