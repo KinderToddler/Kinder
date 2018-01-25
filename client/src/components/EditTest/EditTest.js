@@ -1,9 +1,9 @@
 
 import React, { Component } from 'react';
 import API from "../../utils/API";
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import { Input, FormBtn } from '../Form';
-import Home from "../../pages/Home";
+// import Home from "../../pages/Home";
 import "./EditTest.css"
 
 

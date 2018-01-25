@@ -4,7 +4,7 @@ import "./Thumbnail.css";
 const Thumbnail = (props) => {
   // let st = {backgroundImage: 'url(' + props.matches.imgUrl + ')'};
     let imgstyle = {width: "50%"};
-    let divstyle = {['text-align']: "center"}
+    let divstyle = {textAlign: "center"}
 
     // <pre>
     //   { JSON.stringify(props.matches.id, null, 2) }

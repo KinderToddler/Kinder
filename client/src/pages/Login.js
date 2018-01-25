@@ -86,7 +86,7 @@ class Login extends Component {
   }
 
   render() {
-    const { loggedIn, newUser, errors, username, password } = this.state
+    const { loggedIn, newUser, username, password } = this.state
 
     if ( loggedIn ) {
       return (

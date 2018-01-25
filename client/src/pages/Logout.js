@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Route } from "react-router-dom";
+// import { Link, Route } from "react-router-dom";
 import API from "../utils/API";
 import "./Home.css";
 import authState from '../utils/authinterface.js'
