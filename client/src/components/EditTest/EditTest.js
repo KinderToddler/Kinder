@@ -10,7 +10,6 @@ import "./EditTest.css"
 class EditTest extends Component {
 
   constructor(props) {
-    console.log(props)
      super(props)
   }
 
@@ -52,7 +51,7 @@ class EditTest extends Component {
 
   render() {
     return (
-    <div className="edit-profile, container" fluid>
+    <div className="edit-profile, container">
         <div className="form-container, row">
             <form className="profile-form">
             image URL:

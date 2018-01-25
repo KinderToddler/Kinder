@@ -2,9 +2,10 @@ import React from "react";
 // import { Route } from "react-router-dom";
 import ProfilePic from "../ProfilePic/ProfilePic";
 import Name from "../Name/Name";
-import Height from "../Height/Height";
-import Age from "../Age/Age";
-import Text from "../Text/Text";
+// import Yes from "../Button"
+// import Pass from "..Button"
+import "./Card.css"
+
     // <pre>
     //   { JSON.stringify(props, null, 2) }
     // </pre>
@@ -15,9 +16,6 @@ const Card = (props) =>(
     <div className="user-info-container">
         <div className="user-info">
             First Name: <Name name={props.profile.firstName} />
-        </div>        
-        <div className="user-info">
-            Last Name: <Name name={props.profile.lastName} />
         </div>
         <div className="user-info">  
             Username: <Name name={props.profile.username} />

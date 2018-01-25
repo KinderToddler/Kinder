@@ -15,7 +15,8 @@ class Login extends Component {
     username: '',
     password: '',
     newUser: false,
-    loggedIn: false
+    loggedIn: false,
+    errors: ''
   }
 
   componentDidMount() {
@@ -94,7 +95,7 @@ class Login extends Component {
     }
 
     return (
-      <div id="login-container" clasName="container" fluid>
+      <div id="login-container" className="container-fluid">
         <div className="row">
           <div className="col-md-3"></div>
           <div className="col-md-6">
@@ -141,7 +142,7 @@ class Login extends Component {
 
             </form>
           </div>  
-          <div clasName="col-md-3"></div>
+          <div className="col-md-3"></div>
         </div>
       </div>
     )

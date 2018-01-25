@@ -14,12 +14,14 @@
   background-color: #fdda6f;
   /*display: flex;*/
   display: inline-flex;
-  float: right;
   align-items: center;
+  flex-direction: column;
   margin: 10px auto 30px auto;
   border-style: solid;
   border-color: #d73725;
   flex-wrap: wrap;
+  -webkit-box-shadow: 12px 12px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
+  box-shadow: 12px 12px 6px rgba(0,0,0,.16), 0 3px 6px rgba(0,0,0,.23);
 }
 
 .user-info-container{
@@ -28,7 +30,7 @@
   background-color: white;
   width: 70%;
   margin: auto;
-  margin-bottom: 30px;
+  margin-top: 40px;
 }
 
 .user-info {
