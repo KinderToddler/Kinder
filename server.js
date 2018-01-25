@@ -45,12 +45,12 @@ app.use(session({
   saveUninitialized: true
 }))
 
+require('./middleware/passport')(passport)
 
 app.use(passport.initialize())
 app.use(passport.session())
 
 // Passing the passport singleton to our passport middleware to load our authentication strategies
-require('./middleware/passport')(passport)
 
 // Requiring our authentication routes
 require('./routes/auth.js')(app, passport)

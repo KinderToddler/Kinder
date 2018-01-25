@@ -18,18 +18,24 @@ class Login extends Component {
     loggedIn: false
   }
 
-  // componentDidMount() {
-  //   API.checkForSession()
-  //     .then( res => {
-  //       const { user } = res.data
+  componentDidMount() {
+    API.checkForSession()
+      .then( res => {
+        const { user } = res.data
+        if ( user ) {
+          authState.loggedIn = true 
+          this.setState({ loggedIn: true })
+        }
+      })
+      .catch(() => {})
+  }
 
-  //       if ( user ) {
-  //         AuthInterface.login( user )
-  //         this.setState({ loggedIn: true })
-  //       }
-  //     })
-  //     .catch(() => {})
-  // }
+
+  componentDidMount() {
+    if (authState.loggedIn === true){
+      this.setState({loggedIn: true})
+    }
+  }
 
   handleInputChange = event => {
     const { name, value } = event.target
@@ -41,15 +47,13 @@ class Login extends Component {
   handleFormSubmit = event => {
     event.preventDefault()
 
-    // const { username, password, newUser } = this.state
     let user = {
       username: this.state.username,
       password: this.state.password
     }
 
-    if ( !(user.username && user.password) ) return
 
-    // const authMethod = newUser ? 'signup' : 'login'
+    if ( !(user.username && user.password) ) return
 
     if (this.state.newUser){
       API.createUser(user)
@@ -64,8 +68,9 @@ class Login extends Component {
         console.log(res)
         if (res.data.user._id) {
           authState.loggedIn = true
+          this.setState({loggedIn: true})
         }
-      })
+      }.bind(this))
       .catch(console.error)
     }
 
@@ -84,7 +89,7 @@ class Login extends Component {
 
     if ( loggedIn ) {
       return (
-        <Redirect to='/' />
+        <Redirect to='/home' />
       )
     }
 
