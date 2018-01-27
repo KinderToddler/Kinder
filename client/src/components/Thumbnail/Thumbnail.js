@@ -2,18 +2,14 @@ import React from "react";
 import "./Thumbnail.css";
 
 const Thumbnail = (props) => {
-  // let st = {backgroundImage: 'url(' + props.matches.imgUrl + ')'};
-    let imgstyle = {width: "50%"};
-    let divstyle = {['text-align']: "center"}
-
     // <pre>
     //   { JSON.stringify(props.matches.id, null, 2) }
     // </pre>
   return (
     <div className="thumbnail">
 
-      <div className="img-container" key={props.matches._id} style={divstyle}>
-        <img alt={props.matches.name} src={props.matches.imgUrl} style= {imgstyle} className="img-thumbnail" />
+      <div className="img-container" key={props.matches._id}>
+        <img alt={props.matches.name} src={props.matches.imgUrl} className="img-thumbnail" />
       </div>
       <p>Username: {props.matches.username}</p>
       <p>Email: {props.matches.email}</p>

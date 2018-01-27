@@ -1,9 +1,7 @@
 
 import React, { Component } from 'react';
 import API from "../../utils/API";
-import { Redirect } from 'react-router-dom';
 import { Input, FormBtn } from '../Form';
-import Home from "../../pages/Home";
 import "./EditTest.css"
 
 
@@ -13,7 +11,18 @@ class EditTest extends Component {
      super(props)
   }
 
-  state = {}
+  state = {
+    imgUrl: '',
+    firstName: '',
+    lastName: '',
+    username: '',
+    email: '',
+    height: '',
+    age: '',
+    likes: '',
+    dislikes: '',
+    allergies: '',
+  }
   
   componentDidMount() {
     this.fetchProfile();

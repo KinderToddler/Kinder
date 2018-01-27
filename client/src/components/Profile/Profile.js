@@ -1,9 +1,7 @@
 import React from "react";
-// import { Route } from "react-router-dom";
 import './Profile.css';
 import ProfilePic from "../ProfilePic/ProfilePic";
 import Name from "../Name/Name";
-// import Text from "../Text/Text";
     // <pre>
     //   { JSON.stringify(props, null, 2) }
     // </pre>

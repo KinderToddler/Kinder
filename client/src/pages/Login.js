@@ -1,9 +1,7 @@
 
 import React, { Component } from 'react'
-// import AuthInterface from '../../utils/AuthInterface'
 import { Redirect } from 'react-router-dom'
 import { Input, FormBtn } from '../components/Form'
-// import ErrorDisplay from '../../components/ErrorDisplay'
 import './Login.css'
 import API from "../utils/API";
 import authState from '../utils/authinterface.js'
@@ -86,7 +84,7 @@ class Login extends Component {
   }
 
   render() {
-    const { loggedIn, newUser, errors, username, password } = this.state
+    const { loggedIn, newUser, username, password } = this.state
 
     if ( loggedIn ) {
       return (
