@@ -5,6 +5,10 @@ import { Yes, Pass } from '../components/Button'
 
 class Match extends Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   state = {
     Users: [],
     id: undefined,
@@ -47,7 +51,11 @@ class Match extends Component {
       })
   }
 
-  
+  passMatch = (bar) => {
+    console.log('Click happened', bar);
+    // this.setState({activeIndex: this.state.activeIndex + 1})
+  }
+
   render() {
     console.log("rendering")
     console.log("users:", this.state.Users)
@@ -60,10 +68,7 @@ class Match extends Component {
             <div>
               <Card profile={this.state.Users[this.state.activeIndex]} />
               <Yes />
-              <Pass />
-              <div className="yesBtn">
-                <button onClick={this.createAMatch} id= {this.state.Users[this.state.activeIndex]._id}> Yes </button>
-              </div>
+              <Pass clicked={this.passMatch}/>
             </div>)
         }
       </div>

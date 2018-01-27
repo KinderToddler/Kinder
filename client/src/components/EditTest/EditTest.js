@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import API from "../../utils/API";
 import { Input, FormBtn } from '../Form';
@@ -8,7 +7,7 @@ import "./EditTest.css"
 class EditTest extends Component {
 
   constructor(props) {
-     super(props)
+     super(props);
   }
 
   state = {
