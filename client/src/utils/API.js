@@ -27,5 +27,8 @@ export default {
   },
   logUserOut: credentials => {
     return axios.get("/auth/logout")
+  },
+  sendEmail: (email) => {
+    return axios.post("/api/user/sendemail", email)
   }
 };

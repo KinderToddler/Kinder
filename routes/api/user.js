@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const userController = require("../../controllers/usercontroller.js");
-
+const emailer = require("../../config/emailer.js");
 
 // Matches with "/api/user"
 router.route("/")
@@ -27,5 +27,11 @@ router
   .get(userController.findById)
   .put(userController.update)
   .delete(userController.remove);
+
+// Matches with "/api/user/sendemail"
+
+router
+	.route("/sendemail")
+	.post(emailer.send)
 
 module.exports = router;
