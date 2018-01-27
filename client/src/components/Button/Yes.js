@@ -1,17 +1,23 @@
-import React from "react";
+import React, { Component } from "react";
 import "./Button.css";
 
-// const Yes = (props) =>(
-//   <div className="swipe, right">
-//     <button id= {props._id}> Yes </button>
-//   </div>
-// );
 
-// export default Yes;
+export class Yes extends Component {
 
-export const Yes = (props) =>(
-  <div>
-    <button className="yes" id= {props._id}> Yes!! </button>
-  </div>
-);
+  constructor(props) {
+    super(props);
+    console.log("Pssssss props ", props)
+    this.handleClick = this.handleClick.bind(this);
+  }
+    
+  state ={}
 
+  handleClick = () => {
+    this.props.passClicked()
+    console.log(this.props.yesClicked)
+  }
+
+  render() {
+    return <button className="yes" onClick={ this.handleClick }>Yes!</button>
+  }
+}
