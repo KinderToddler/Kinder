@@ -4,7 +4,7 @@ import './Nav.css';
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 const Nav = props =>(
   <nav className="navbar">
-    <div className="container-fluid">
+    <div>
       <ul className="nav">
         <li className="brand">Kinder</li>
         <li

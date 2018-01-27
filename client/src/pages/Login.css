@@ -4,21 +4,21 @@
   background-size: 100%;
   background-position: center center;
   background-repeat: repeat;
-  z-index: 3;
+  z-index: 2;
 }
 .wrapper > #login-container:before {
 /*.wrapper > #login-container:after {*/
   content : "";
   display: block;
   position: absolute;
-  background-size: 110%;
+  background-size: 120%;
   background-position: center center;
   background-image: url("../assets/main.jpg");
   background-repeat: repeat;
   opacity: 1;
   width: 100%;
-  height: 100%;
-  top: 0;
+  height: 150%;
+  top: -100px;
   left: 0;
   z-index: 0;
 }

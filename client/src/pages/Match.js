@@ -56,7 +56,7 @@ class Match extends Component {
       <div className="find-match">
         <h1 className="text-center">Find A Playdate!</h1>
             <div>
-             {this.state.Users.length == 0
+             {this.state.Users.length === 0
              ? (<p>"no matches!"</p>)
               : (
                 <div>
