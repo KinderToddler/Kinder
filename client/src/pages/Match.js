@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-// import { Link, Route } from "react-router-dom";
 import Card from "../components/Card/Card";
 import API from "../utils/API"
+import { Yes, Pass } from '../components/Button'
 
 class Match extends Component {
 
@@ -54,19 +54,18 @@ class Match extends Component {
     console.log("activeIndex:", this.state.activeIndex)
     return (
       <div className="find-match">
-        <h1 className="text-center">Find A Playdate!</h1>
+         {this.state.Users.length === 0
+         ? (<p>"no matches!"</p>)
+          : (
             <div>
-             {this.state.Users.length === 0
-             ? (<p>"no matches!"</p>)
-              : (
-                <div>
-                  <Card profile={this.state.Users[this.state.activeIndex]} />
-                  <div className="yesBtn">
-                    <button onClick={this.createAMatch} id= {this.state.Users[this.state.activeIndex]._id}> Yes </button>
-                  </div>
-                </div>)
-            }
-            </div> 
+              <Card profile={this.state.Users[this.state.activeIndex]} />
+              <Yes />
+              <Pass />
+              <div className="yesBtn">
+                <button onClick={this.createAMatch} id= {this.state.Users[this.state.activeIndex]._id}> Yes </button>
+              </div>
+            </div>)
+        }
       </div>
     )
   }

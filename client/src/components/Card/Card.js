@@ -1,9 +1,7 @@
 import React from "react";
-// import { Route } from "react-router-dom";
 import ProfilePic from "../ProfilePic/ProfilePic";
 import Name from "../Name/Name";
-// import Yes from "../Button"
-// import Pass from "..Button"
+import { Yes, Pass } from '../Button'
 import "./Card.css"
 
     // <pre>
@@ -39,6 +37,10 @@ const Card = (props) =>(
             Allergies: <Name name={props.profile.allergies} />
         </div>
     </div>
+    <div>
+        <Yes />
+        <Pass />
+     </div>   
   </div>  
 );
 
