@@ -21,12 +21,12 @@ class Match extends Component {
 
   // When the component mounts, load the profile information
   componentDidMount() {
-    this.getAllUsers()
-    this.getID()
+    this.setAllUsers()
+    this.setID()
   }
 
 
-  getAllUsers = () => {
+  setAllUsers = () => {
     API.getAllUsers()
     .then(res => {
       this.setState({Users: res.data, activeIndex: 0},
@@ -34,7 +34,7 @@ class Match extends Component {
     })
   }
 
-  getID = () => {
+  setID = () => {
     API.checkForSession()
     .then( res => {
       this.setState({id: res.data.user._id})
