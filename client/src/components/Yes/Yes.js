@@ -6,7 +6,7 @@ class Yes extends Component {
 
   constructor(props) {
     super(props);
-    console.log("Yessss props ", props)
+    // console.log("Yessss props ", props)
     this.handleClick = this.handleClick.bind(this);
   }
     

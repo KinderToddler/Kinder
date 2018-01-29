@@ -5,7 +5,7 @@ class Pass extends Component {
 
   constructor(props) {
     super(props);
-    console.log("Pssssss props ", props)
+    // console.log("Pssssss props ", props)
     this.handleClick = this.handleClick.bind(this);
   }
     

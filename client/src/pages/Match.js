@@ -13,6 +13,7 @@ class Match extends Component {
   state = {
     Users: [],
     Matches: [],
+    newMatches: [],
     id: undefined,
     activeIndex: -1
   }
@@ -37,7 +38,7 @@ class Match extends Component {
     API.checkForSession()
     .then( res => {
       this.setState({id: res.data.user._id})
-      pastMatches(res.data.matches)
+      this.pastMatches(res.data.user._id)
     })
   }
 
@@ -46,15 +47,22 @@ class Match extends Component {
     console.log("filterMatches")
     API.getUser(id)
       .then(res => {
-        filterMatches(res.data.matches)
+        this.filterMatches(res.data.matches)
       })
       .catch((err)=>{console.log(err)})
   }
 
   filterMatches = (matches) => {
-    this.state.Users.filter( user => {
-
-    })
+    // create an array with ids of past right swipes 
+    const matchIds = []
+    for (let i = 0; i < matches.length; i++) {
+      matchIds.push(matches[i]._id)
+    }
+    // console.log(matchIds)
+    // console.log(this.state.Users)
+    const result = this.state.Users.filter(user => !matchIds.includes(user._id));
+    console.log("unMatchedUsers ", result)
+    this.setState.newMatches = result;
   }
 
   createAMatch = () => {
@@ -78,7 +86,7 @@ class Match extends Component {
                 // </pre>              
   render() {
     console.log("rendering")
-    console.log("users:", this.state.Users)
+    console.log("users:", this.state.newMatches)
     console.log("activeIndex:", this.state.activeIndex)
     return (
       <div className="find-match">

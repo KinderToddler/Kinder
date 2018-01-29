@@ -25,7 +25,7 @@ class EditTest extends Component {
   
   componentDidMount() {
     this.fetchProfile();
-    console.log(this.props)
+    // console.log(this.props)
   }
 
   fetchProfile() {
