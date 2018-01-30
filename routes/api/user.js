@@ -7,6 +7,11 @@ router.route("/")
   .get(userController.findAll)
   .post(userController.create);
 
+//Matches with "/api/user/potentialmatches"
+
+router.route("/potentialmatches")
+  .get(userController.getPotentialMatches)
+
 // Matches with "/api/user/profile"
 
 router.route("/profile")

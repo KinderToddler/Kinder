@@ -30,5 +30,8 @@ export default {
   },
   sendEmail: (email) => {
     return axios.post("/api/user/sendemail", email)
+  },
+  getPotentialMatches: (id) => {
+    return axios.get("/api/user/potentialmatches")
   }
 };
