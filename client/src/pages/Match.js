@@ -30,7 +30,7 @@ class Match extends Component {
     API.getAllUsers()
     .then(res => {
       this.setState({Users: res.data, activeIndex: 0},
-        () => console.log("STATE: ", this.state))
+        () => console.log("got all users"))
     })
   }
 

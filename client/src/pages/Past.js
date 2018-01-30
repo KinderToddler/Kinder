@@ -2,10 +2,7 @@ import React, { Component } from "react";
 // import Friends from "./friends.json";
 import Thumbnail from '../components/Thumbnail/Thumbnail';
 import API from "../utils/API"
-// import emailer from "../utils/emailer.js"
-    // <pre>
-    //   { JSON.stringify(props, null, 2) }
-    // </pre>
+import {TextArea} from "../components/Form"
 
 class Past extends Component {
 
@@ -13,11 +10,12 @@ class Past extends Component {
     Friends: [],
     email: {
         from: '"Playmates 🍼" <kinderplaymates@gmail.com>', // sender address
-        to: 'eneidarevueltas@gmail.com', // list of receivers
+        to: undefined, // list of receivers
         subject: 'Hello ✔', // Subject line
         text: 'Uhhh...Hello world?', // plain text body
-        html: '<b>Uhhh...Hello world?</b>' // html body
-      }
+        html: '<b>Sup prof?</b>' // html body
+      },
+    emailBody: undefined
   };
 
   componentDidMount() {
@@ -34,24 +32,41 @@ class Past extends Component {
         // const { imgUrl, firstName, lastName, username, gender, age, height, likes, dislikes, allergies, email } = res.data
         // this.setState({ imgUrl, firstName, lastName, username, gender, age, height, likes, dislikes, allergies, email })
         this.setState({Friends: res.data.matches})
-        console.log("heres state: ", this.state)
+        // console.log("heres state: ", this.state)
       })
       .catch(() => {})
       
   }
 
-  sendMail() {
+  handleInputChange(event) {
+    const { name, value } = event.target
+    this.setState({[name]: value})
+
+  }
+
+  sendMail(event) {
     var emailBody = this.state.email
 
-    API.sendEmail(emailBody)
-      .then(res => {
-        console.log(res)
+    // console.log("friend ID", event.target.id )
+    API.getUser(event.target.id)
+      .then( res => {
+        let newEmail = {...this.state}
+        newEmail.email.to = res.data.email
+        newEmail.email.html = this.state.emailBody
+        this.setState({newEmail}, () => {
+          API.sendEmail(this.state.email)
+           .then(res => {
+           return
+            })
+        })
       })
+
 
   }
                 
     render() {
       let boundSendMail = this.sendMail.bind(this);
+      let boundOnChange = this.handleInputChange.bind(this)
       return (
         <div className="past-matches">
             <h1>past matches</h1>
@@ -59,7 +74,8 @@ class Past extends Component {
               return (
                 <div>
                   <Thumbnail matches = { friend } />
-                  <button onClick = {boundSendMail}> email this match </button>
+                  <TextArea onChange = {boundOnChange} name="emailBody"/>
+                  <button onClick = {boundSendMail} id={friend._id}> email this match</button>
                 </div>
                 )
             }) }
