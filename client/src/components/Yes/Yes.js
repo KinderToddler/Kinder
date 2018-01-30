@@ -2,22 +2,23 @@ import React, { Component } from "react";
 import "./Button.css";
 
 
-export class Pass extends Component {
+class Yes extends Component {
 
   constructor(props) {
     super(props);
-    console.log("Pssssss props ", props)
+    // console.log("Yessss props ", props)
     this.handleClick = this.handleClick.bind(this);
   }
     
   state ={}
 
   handleClick = () => {
-    this.props.passClicked()
-    console.log(this.props.passClicked)
+    this.props.yesClicked()
   }
 
   render() {
-    return <button className="pass" onClick={ this.handleClick }>Pass...</button>
+    return <button className="yes" onClick={ this.handleClick }>Yes!</button>
   }
 }
+
+export default Yes; 

@@ -1,17 +1,17 @@
 import React from "react";
-// import { Route } from "react-router-dom";
 import ProfilePic from "../ProfilePic/ProfilePic";
 import Name from "../Name/Name";
-// import Yes from "../Button"
-// import Pass from "..Button"
+// import { Yes, Pass } from '../Button'
+import Yes from "../Yes/Yes";
+import Pass from "../Pass/Pass";
 import "./Card.css"
 
     // <pre>
     //   { JSON.stringify(props, null, 2) }
     // </pre>
-
 const Card = (props) =>(
   <div className="card-container">
+
     <ProfilePic img={props.profile.imgUrl} />
     <div className="user-info-container">
         <div className="user-info">
@@ -39,6 +39,10 @@ const Card = (props) =>(
             Allergies: <Name name={props.profile.allergies} />
         </div>
     </div>
+    <div>
+        <Yes yesClicked={props.yesClicked}/>
+        <Pass passClicked={props.passClicked}/>
+    </div>   
   </div>  
 );
 
