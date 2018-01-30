@@ -57,14 +57,13 @@ class Login extends Component {
     if (this.state.newUser){
       API.createUser(user)
       .then(function(user) {
-        console.log(user)
       })
       .catch(console.error)
     }
     else {
       API.loginUser(user)
       .then(function(res){
-        console.log(res)
+        // console.log(res)
         if (res.data.user._id) {
           authState.loggedIn = true
           this.setState({loggedIn: true})
