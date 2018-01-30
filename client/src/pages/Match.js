@@ -24,7 +24,7 @@ class Match extends Component {
     API.getAllUsers()
     .then(res => {
       this.setState({Users: res.data, activeIndex: 0},
-        () => console.log("STATE: ", this.state))
+        () => console.log("got all users"))
     })
   }
 
@@ -50,7 +50,7 @@ class Match extends Component {
   
   render() {
     console.log("rendering")
-    console.log("users:", this.state.Users)
+    // console.log("users:", this.state.Users)
     console.log("activeIndex:", this.state.activeIndex)
     return (
       <div className="find-match">
