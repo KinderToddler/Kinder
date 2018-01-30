@@ -66,8 +66,6 @@ module.exports = {
     });
   },
   addMatch: function(req, res) {
-
-    console.log(req.body.id);
     db.User
     .findOneAndUpdate({ _id: req.body.id }, {$push: {matches: req.body.match_id}}, { new: true })
     
@@ -82,5 +80,16 @@ module.exports = {
       // If an error occurred, send it to the client
       res.json(err);
     });
+  },
+  getPotentialMatches: function(req, res){
+    db.User
+    .findById({_id: req.params.id})
+    .then(function(dbUser){
+      req.dbUser = dbUser
+      return db.User.find({ _id : { $nin: dbUser.matches }})
+    })
+    .then(function(dbAllUsers){
+      res.json(dbAllUsers)
+    })
   }
 };
