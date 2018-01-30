@@ -1,5 +1,5 @@
 import React from "react";
-import "./ProfilePic.css";
+import "./ProfilePic.css"
 
 const ProfilePic = (props) =>(
     <div className="img-container" id={ props.id }>
