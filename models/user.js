@@ -58,6 +58,10 @@ var UserSchema = new Schema({
   password: {
     type: String,
     required: true
+  },
+  zipcode: {
+    type: Number,
+    required: false
   }
 
 });
