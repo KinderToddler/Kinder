@@ -1,21 +1,89 @@
-import React from "react";
-import "./Thumbnail.css";
+import React, { Component } from 'react';
+import { Popover, Tooltip, Modal, Button, OverlayTrigger } from 'react-bootstrap'
 
-const Thumbnail = (props) => {
-    // <pre>
-    //   { JSON.stringify(props.matches.id, null, 2) }
-    // </pre>
-  return (
-    <div className="thumbnail">
+class Examplemodal extends React.Component {
+  constructor(props, context) {
+    super(props, context);
 
-      <div className="img-container" key={props.matches._id}>
-        <img alt={props.matches.name} src={props.matches.imgUrl} className="img-thumbnail" />
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+
+
+    this.state = {
+      show: false
+    };
+  }
+
+  handleClose() {
+    this.setState({ show: false });
+  }
+
+  handleShow() {
+    this.setState({ show: true });
+  }
+
+  render() {
+    const popover = (
+      <Popover id="modal-popover" title="popover">
+        very popover. such engagement
+      </Popover>
+    );
+    const tooltip = <Tooltip id="modal-tooltip">wow.</Tooltip>;
+
+    if (!this.props.matches) {
+    	return (<div>No Matches Yet! Add some matches :)</div>)
+    }
+
+    return (
+
+      <div>
+       
+	     <div className="img-container" key={this.props.matches._id}>
+	        <img alt={this.props.matches.name} src={this.props.matches.imgUrl} className="img-thumbnail" />
+	      </div> 
+
+        <Button bsStyle="primary" bsSize="large" onClick={this.handleShow}>
+          View User
+        </Button>
+
+        <Modal show={this.state.show} onHide={this.handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>{this.props.matches.username}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+
+          <div className="img-container" key={this.props.matches._id}>
+	        <img alt={this.props.matches.name} src={this.props.matches.imgUrl} className="img-thumbnail" />
+	      </div> 
+
+            <h4>Profile</h4>
+            <p>
+            Age: {this.props.matches.age}
+            </p>
+            <p>
+            Height: {this.props.matches.height}
+            </p>
+            <p>
+            Likes: {this.props.matches.likes}
+            </p>
+            <p>
+            Dislikes: {this.props.matches.dislikes}
+            </p>
+            <p>
+            Allergies: {this.props.matches.allergies}
+            </p>            
+            <hr />
+
+            <p>Send this match a note!</p> 
+            {this.props.children}
+          </Modal.Body>
+          <Modal.Footer>
+            <Button onClick={this.handleClose}>Close</Button>
+          </Modal.Footer>
+        </Modal>
       </div>
-      <p>Username: {props.matches.username}</p>
-      <p>Email: {props.matches.email}</p>
-      <p>ID (we won't have this in production): {props.matches._id}</p>
-    </div>
-  )
-};
+    );
+  }
+}
 
-export default Thumbnail;
+export default Examplemodal

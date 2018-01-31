@@ -21,6 +21,7 @@ class EditTest extends Component {
     likes: '',
     dislikes: '',
     allergies: '',
+    zipcode: ''
   }
   
   componentDidMount() {
@@ -131,6 +132,13 @@ class EditTest extends Component {
                 onChange={ this.onEditChange }
                 name='allergies'
                 placeholder='allergies'
+              />
+              Zipcode:
+              <Input
+                value={ this.state.zipcode }
+                onChange={ this.onEditChange }
+                name='zipcode'
+                placeholder='zipcode'
               />
               <FormBtn
                 onClick={ this.onButtonClick }

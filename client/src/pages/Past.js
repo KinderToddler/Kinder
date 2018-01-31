@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 // import Friends from "./friends.json";
-import Thumbnail from '../components/Thumbnail/Thumbnail';
 import API from "../utils/API"
 import {TextArea} from "../components/Form"
+import Thumbnail from "../components/Thumbnail/Thumbnail";
+
 
 class Past extends Component {
 
@@ -47,7 +48,6 @@ class Past extends Component {
   sendMail(event) {
     var emailBody = this.state.email
 
-    // console.log("friend ID", event.target.id )
     API.getUser(event.target.id)
       .then( res => {
         let newEmail = {...this.state}
@@ -62,20 +62,22 @@ class Past extends Component {
       })
 
 
+
   }
                 
     render() {
       let boundSendMail = this.sendMail.bind(this);
-      let boundOnChange = this.handleInputChange.bind(this)
+      let boundOnChange = this.handleInputChange.bind(this);
       return (
         <div className="past-matches">
             <h1>past matches</h1>
             { this.state.Friends.map(friend => {
               return (
                 <div>
-                  <Thumbnail matches = { friend } />
-                  <TextArea onChange = {boundOnChange} name="emailBody"/>
-                  <button onClick = {boundSendMail} id={friend._id}> email this match</button>
+                  <Thumbnail matches = {friend}>
+                    <TextArea onChange = {boundOnChange} name="emailBody"/>
+                    <button onClick = {boundSendMail} id={friend._id}> email this match</button>
+                  </Thumbnail>
                 </div>
                 )
             }) }
