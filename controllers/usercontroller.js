@@ -68,14 +68,16 @@ module.exports = {
   addMatch: function(req, res) {
     db.User
     .findOneAndUpdate({ _id: req.body.id }, {$push: {matches: req.body.match_id}}, { new: true })
-    
-    .then(function(dbUser) {
-      return db.User.findOneAndUpdate({ _id: req.body.match_id}, {$push:{matches: req.body.id}}, { new: true })
+    .then(function(dbUser){
+      res.json(dbUser)
     })
-    .then(function(dbUser) {
-      // If we were able to successfully update a profile, send it back to the client
-      res.json(dbUser);
-    })
+    // .then(function(dbUser) {
+    //   return db.User.findOneAndUpdate({ _id: req.body.match_id}, {$push:{matches: req.body.id}}, { new: true })
+    // })
+    // .then(function(dbUser) {
+    //   // If we were able to successfully update a profile, send it back to the client
+    //   res.json(dbUser);
+    // })
     .catch(function(err) {
       // If an error occurred, send it to the client
       res.json(err);
