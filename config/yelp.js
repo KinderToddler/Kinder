@@ -9,7 +9,6 @@ const client = yelp.client(apiKey);
 
 module.exports = { 
 
-
 	findPlaygrounds: function(req, res){
 
 		const searchRequest = {
@@ -18,16 +17,13 @@ module.exports = {
 		  limit: 3
 		};
 
-		client.search(searchRequest).then(res => {
-		  // const firstResult = response.jsonBody.businesses[0];
-		  // const prettyJson = JSON.stringify(response, null, 4);
-		  console.log(res)
+		client.search(searchRequest).then(response => {
+		  const result = JSON.parse(response.body)
+		  console.log(result)
+		  res.json(result)
 		}).catch(e => {
 		  console.log(e);
 		});
-		const result = JSON.stringify(res, null, 4)
-
-		res.json(res)
 	}
 
 }
