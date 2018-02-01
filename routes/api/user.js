@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const userController = require("../../controllers/usercontroller.js");
 const emailer = require("../../config/emailer.js");
+const yelp = require("../../config/yelp.js")
 
 // Matches with "/api/user"
 router.route("/")
@@ -38,5 +39,11 @@ router
 router
 	.route("/sendemail")
 	.post(emailer.send)
+
+// Matches with "/api/user/yelp/:zipcode"
+
+router
+  .route("/yelp/:zipcode")
+  .get(yelp.findPlaygrounds)
 
 module.exports = router;
