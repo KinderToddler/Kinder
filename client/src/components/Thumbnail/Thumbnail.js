@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Popover, Tooltip, Modal, Button, OverlayTrigger } from 'react-bootstrap'
-
+import "./Thumbnail.css"
 class Examplemodal extends React.Component {
   constructor(props, context) {
     super(props, context);
@@ -34,13 +34,11 @@ class Examplemodal extends React.Component {
     	return (<div>No Matches Yet! Add some matches :)</div>)
     }
 
-    return (
-
+    return 
       <div>
-       
-	     <div className="img-container" key={this.props.matches._id}>
-	        <img alt={this.props.matches.name} src={this.props.matches.imgUrl} className="img-thumbnail" />
-	      </div> 
+        <div className="img-container" key={this.props.matches._id}>
+          <img alt={this.props.matches.name} src={this.props.matches.imgUrl} className="img-thumbnail" />
+        </div>
 
         <Button bsStyle="primary" bsSize="large" onClick={this.handleShow}>
           View User
@@ -51,38 +49,26 @@ class Examplemodal extends React.Component {
             <Modal.Title>{this.props.matches.username}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-
-          <div className="img-container" key={this.props.matches._id}>
-	        <img alt={this.props.matches.name} src={this.props.matches.imgUrl} className="img-thumbnail" />
-	      </div> 
+            <div className="img-container" key={this.props.matches._id}>
+              <img alt={this.props.matches.name} src={this.props.matches.imgUrl} className="img-thumbnail" />
+            </div>
 
             <h4>Profile</h4>
-            <p>
-            Age: {this.props.matches.age}
-            </p>
-            <p>
-            Height: {this.props.matches.height}
-            </p>
-            <p>
-            Likes: {this.props.matches.likes}
-            </p>
-            <p>
-            Dislikes: {this.props.matches.dislikes}
-            </p>
-            <p>
-            Allergies: {this.props.matches.allergies}
-            </p>            
+            <p>Age: {this.props.matches.age}</p>
+            <p>Height: {this.props.matches.height}</p>
+            <p>Likes: {this.props.matches.likes}</p>
+            <p>Dislikes: {this.props.matches.dislikes}</p>
+            <p>Allergies: {this.props.matches.allergies}</p>
             <hr />
 
-            <p>Send this match a note!</p> 
+            <p>Send this match a note!</p>
             {this.props.children}
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.handleClose}>Close</Button>
           </Modal.Footer>
         </Modal>
-      </div>
-    );
+      </div>;
   }
 }
 

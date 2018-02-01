@@ -70,16 +70,17 @@ class Past extends Component {
       let boundOnChange = this.handleInputChange.bind(this);
       return (
         <div className="past-matches">
-            <h1>past matches</h1>
             { this.state.Friends.map(friend => {
-              return (
-                <div>
-                  <Thumbnail matches = {friend}>
-                    <TextArea onChange = {boundOnChange} name="emailBody"/>
-                    <button onClick = {boundSendMail} id={friend._id}> email this match</button>
+              return 
+                <div className="thumb">
+                  <Thumbnail matches={friend}>
+                    <TextArea onChange={boundOnChange} name="emailBody" />
+                    <button onClick={boundSendMail} id={friend._id}>
+                      {" "}
+                      email this match
+                    </button>
                   </Thumbnail>
-                </div>
-                )
+                </div>;
             }) }
         </div>
       );
