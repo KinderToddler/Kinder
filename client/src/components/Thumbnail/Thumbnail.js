@@ -34,7 +34,7 @@ class Examplemodal extends React.Component {
     	return (<div>No Matches Yet! Add some matches :)</div>)
     }
 
-    return 
+    return( 
       <div>
         <div className="img-container" key={this.props.matches._id}>
           <img alt={this.props.matches.name} src={this.props.matches.imgUrl} className="img-thumbnail" />
@@ -68,7 +68,7 @@ class Examplemodal extends React.Component {
             <Button onClick={this.handleClose}>Close</Button>
           </Modal.Footer>
         </Modal>
-      </div>;
+      </div>)
   }
 }
 

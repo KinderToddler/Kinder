@@ -81,7 +81,8 @@ class Past extends Component {
                     <TextArea onChange = {boundOnChange} value={this.state.emailBody} name="emailBody"/>
                     <button onClick = {boundSendMail} id={friend._id}> email this match</button>
                   </Thumbnail>
-                </div>;
+                </div>
+              )
             }) }
         </div>
       );
