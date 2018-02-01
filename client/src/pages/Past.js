@@ -9,6 +9,8 @@ class Past extends Component {
 
   state = {
     Friends: [],
+    username: "",
+    emailaddress: "",
     email: {
         from: '"Playmates 🍼" <kinderplaymates@gmail.com>', // sender address
         to: undefined, // list of receivers
@@ -32,7 +34,7 @@ class Past extends Component {
       .then( res => {
         // const { imgUrl, firstName, lastName, username, gender, age, height, likes, dislikes, allergies, email } = res.data
         // this.setState({ imgUrl, firstName, lastName, username, gender, age, height, likes, dislikes, allergies, email })
-        this.setState({Friends: res.data.matches})
+        this.setState({Friends: res.data.matches, username: res.data.username, emailaddress: res.data.email})
         // console.log("heres state: ", this.state)
       })
       .catch(() => {})
@@ -51,12 +53,13 @@ class Past extends Component {
     API.getUser(event.target.id)
       .then( res => {
         let newEmail = {...this.state}
-        newEmail.email.to = res.data.email
-        newEmail.email.html = this.state.emailBody
+        newEmail.email.to = [res.data.email, this.state.emailaddress]
+        newEmail.email.html = "<h1>Your note from "+this.state.username+":</h1><p>"+this.state.emailBody+"</p><hr><h3>You're both cc'ed on this email so just reply :) - Kinder Admin</h3>"
+        newEmail.email.subject = this.state.username + "sent you a note from Kinder!"
         this.setState({newEmail}, () => {
           API.sendEmail(this.state.email)
            .then(res => {
-           return
+           this.setState({emailBody: ""})
             })
         })
       })
@@ -71,14 +74,12 @@ class Past extends Component {
       return (
         <div className="past-matches">
             { this.state.Friends.map(friend => {
-              return 
-                <div className="thumb">
-                  <Thumbnail matches={friend}>
-                    <TextArea onChange={boundOnChange} name="emailBody" />
-                    <button onClick={boundSendMail} id={friend._id}>
-                      {" "}
-                      email this match
-                    </button>
+
+              return (
+                <div>
+                  <Thumbnail matches = {friend}>
+                    <TextArea onChange = {boundOnChange} value={this.state.emailBody} name="emailBody"/>
+                    <button onClick = {boundSendMail} id={friend._id}> email this match</button>
                   </Thumbnail>
                 </div>;
             }) }
