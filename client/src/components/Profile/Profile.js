@@ -37,7 +37,9 @@ const Profile = (props) =>(
         <div className="user-info">  
             Allergies: <Name name={props.profile.allergies} />
         </div>
-        
+        <div className="user-info">  
+            Zipcode: <Name name={props.profile.zipcode} />
+        </div>
     </div>
   </div>  
 );

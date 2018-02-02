@@ -8,9 +8,9 @@ router.route("/")
   .get(userController.findAll)
   .post(userController.create);
 
-//Matches with "/api/user/potentialmatches"
+//Matches with "/api/user/potentialmatches/:id"
 
-router.route("/potentialmatches")
+router.route("/potentialmatches/:id")
   .get(userController.getPotentialMatches)
 
 // Matches with "/api/user/profile"
