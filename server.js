@@ -59,7 +59,7 @@ require('./routes/auth.js')(app, passport)
 app.use(routes);
 
 app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname, "./client/public/index.html"));
 });
 
 
