@@ -17,9 +17,17 @@ module.exports = {
 		  limit: 3
 		};
 
+		console.log("HERES THE REQUEST: ", req.params)
+
+		if (req.params.zipcode === 'undefined'){
+			res.send({message: "no zipcode"})
+			return
+		}
+
+
 		client.search(searchRequest).then(response => {
 		  const result = JSON.parse(response.body)
-		  console.log(result)
+		  // console.log(result)
 		  res.json(result)
 		}).catch(e => {
 		  console.log(e);

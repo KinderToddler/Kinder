@@ -33,5 +33,8 @@ export default {
   },
   getPotentialMatches: (id) => {
     return axios.get("/api/user/potentialmatches/"+id)
+  },
+  getYelpResults: (zipcode) => {
+    return axios.get("/api/user/yelp/"+zipcode)
   }
 };
