@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Popover, Tooltip, Modal, Button, OverlayTrigger } from 'react-bootstrap'
 import "./Thumbnail.css"
-class Examplemodal extends React.Component {
+import API from "../../utils/API"
+
+class Thumbnail extends React.Component {
   constructor(props, context) {
     super(props, context);
 
@@ -10,7 +12,8 @@ class Examplemodal extends React.Component {
 
 
     this.state = {
-      show: false
+      show: false,
+      recs: []
     };
   }
 
@@ -19,20 +22,25 @@ class Examplemodal extends React.Component {
   }
 
   handleShow() {
-    this.setState({ show: true });
+    API.getYelpResults(this.props.matches.zipcode)
+    .then(res =>{
+      if (res.data.message){
+        this.setState({show: true})
+      }
+      else {
+      this.setState({show: true, recs: res.data.businesses })
+        }
+      
+    })
   }
 
+
   render() {
-    const popover = (
-      <Popover id="modal-popover" title="popover">
-        very popover. such engagement
-      </Popover>
-    );
-    const tooltip = <Tooltip id="modal-tooltip">wow.</Tooltip>;
 
     if (!this.props.matches) {
     	return (<div>No Matches Yet! Add some matches :)</div>)
     }
+    
 
     return( 
       <div className="thumb-modal-container">
@@ -61,8 +69,21 @@ class Examplemodal extends React.Component {
             <p>Allergies: {this.props.matches.allergies}</p>
             <hr />
 
+
+            { this.state.recs.length > 0 ?
+              <div>Here are some places close to {this.props.matches.username} you could try out!
+              
+              {this.state.recs.map(business => {
+                return(<ul><a href={business.url}>{business.name} in {business.location.city}</a></ul>)
+                })
+              }
+              </div>
+              : <div></div>           
+            }
+
             <p>Send this match a note!</p>
             {this.props.children}
+
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.handleClose}>Close</Button>
@@ -72,4 +93,4 @@ class Examplemodal extends React.Component {
   }
 }
 
-export default Examplemodal
+export default Thumbnail
