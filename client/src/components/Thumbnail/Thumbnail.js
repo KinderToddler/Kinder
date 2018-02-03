@@ -35,12 +35,12 @@ class Examplemodal extends React.Component {
     }
 
     return( 
-      <div>
+      <div className="thumb-modal-container">
         <div className="img-container" key={this.props.matches._id}>
           <img alt={this.props.matches.name} src={this.props.matches.imgUrl} className="img-thumbnail" />
         </div>
 
-        <Button bsStyle="primary" bsSize="large" onClick={this.handleShow}>
+        <Button className="view-user" bsSize="large" onClick={this.handleShow}>
           View User
         </Button>
 

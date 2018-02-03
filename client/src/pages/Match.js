@@ -19,54 +19,31 @@ class Match extends Component {
   }
 
 
-  // When the component mounts, load the profile information
+  // When the component mounts, load user id
   componentDidMount() {
-    this.setAllUsers()
     this.setID()
   }
 
-
-  setAllUsers = () => {
-    API.getAllUsers()
-    .then(res => {
-      this.setState({Users: res.data, activeIndex: 0},
-        () => console.log("got all users"))
-    })
-  }
+  // When user ID is found, set this.id.
+  // and call potential matches for the user. 
 
   setID = () => {
     API.checkForSession()
     .then( res => {
       this.setState({id: res.data.user._id})
-      this.pastMatches(res.data.user._id)
+      return API.getPotentialMatches(res.data.user._id)
+    })
+    .then(res => {
+      // console.log(res.data, this.state.id)
+      let result = res.data.filter(user => user._id != this.state.id)
+      // console.log(result)
+      this.setState({newMatches: result, activeIndex: 0},
+          () => console.log("got all users"))
     })
   }
 
-
-  pastMatches = (id) => {
-    console.log("filterMatches")
-    API.getUser(id)
-      .then(res => {
-        this.filterMatches(res.data.matches)
-      })
-      .catch((err)=>{console.log(err)})
-  }
-
-  filterMatches = (matches) => {
-    // create an array with ids of past right swipes 
-    const matchIds = []
-    for (let i = 0; i < matches.length; i++) {
-      matchIds.push(matches[i]._id)
-    }
-    // console.log(matchIds)
-    // console.log(this.state.Users)
-    const result = this.state.Users.filter(user => !matchIds.includes(user._id));
-    console.log("unMatchedUsers ", result)
-    this.setState.newMatches = result;
-  }
-
   createAMatch = () => {
-    let match = this.state.Users[this.state.activeIndex]
+    let match = this.state.newMatches[this.state.activeIndex]
     let newMatch = {
       id: this.state.id,
       match_id: match._id
@@ -79,22 +56,23 @@ class Match extends Component {
 
   passMatch = (bar) => {
     console.log('Click happened', bar);
-    this.setState({activeIndex: this.state.activeIndex + 1})
+    this.setState({activeIndex: this.state.activeIndex + 1}),()=>console.log(this.state.activeIndex)
   }
                 // <pre>
                 // { JSON.stringify(Object.keys(this), null, 2) }
-                // </pre>              
+                // </pre> 
+
   render() {
     console.log("rendering")
     console.log("users:", this.state.newMatches)
     console.log("activeIndex:", this.state.activeIndex)
     return (
       <div className="find-match">
-         {this.state.Users.length === 0
+         {this.state.newMatches.length <= this.state.activeIndex || this.state.newMatches.length === 0
          ? (<p>"no matches!"</p>)
           : (
             <div>
-              <Card foo={"bar"} profile={this.state.Users[this.state.activeIndex]} yesClicked={this.createAMatch} passClicked={this.passMatch}/>
+              <Card foo={"bar"} profile={this.state.newMatches[this.state.activeIndex]} yesClicked={this.createAMatch} passClicked={this.passMatch}/>
             </div>)
         }
       </div>
