@@ -14,11 +14,11 @@
   flex-grow: 1;
   display: block;
   max-height: 150px;
-  -webkit-transition: width 2s; /* Safari */
-  transition: width 2s;
+  transition: 0.3s;
+  transition-timing-function: cubic-bezier(0.05, 1.6, 0.85, 1.2);
 }
 
 .img-container > img:hover {
- -webkit-transform: scale(2.5);
- transform: scale(2.5);
-}
+ -webkit-transform: scale(1.7);
+ transform: scale(1.7);
+} 

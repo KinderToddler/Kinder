@@ -32,6 +32,6 @@ export default {
     return axios.post("/api/user/sendemail", email)
   },
   getPotentialMatches: (id) => {
-    return axios.get("/api/user/potentialmatches")
+    return axios.get("/api/user/potentialmatches/"+id)
   }
 };

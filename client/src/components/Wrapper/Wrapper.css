@@ -1,6 +1,6 @@
 .wrapper {
-  min-height: 100hv;
+  height: 200%;
   margin-top: 100px;
-  background-image: url("/background.png");
-  background-color: #a5d4ec;
+/*  background-image: url("/background.png");
+  background-color: #a5d4ec;*/
 }
