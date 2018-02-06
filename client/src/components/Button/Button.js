@@ -10,7 +10,7 @@ class Button extends Component {
   state ={}
 
   render() {
-    return <button onClick={ this.props.handleClick }>{this.props.text}</button>
+    return <button className={this.props.value} onClick={ this.props.handleClick }>{this.props.text}</button>
   }
 }
 

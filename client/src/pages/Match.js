@@ -66,9 +66,8 @@ class Match extends Component {
           : (
             <div>
               <Card profile={this.state.newMatches[this.state.activeIndex]}>
-                <Button className="pass" text="Pass..." handleClick = {this.passMatch} />
-                <Button className="pass" text="Yes!" handleClick = {this.createAMatch} />
-                <Button type="Yes!" handleClick = {this.createAMatch}/>
+                <Button value="pass" text="Pass..." handleClick = {this.passMatch} />
+                <Button value="yes" text="Yes!" handleClick = {this.createAMatch} />
               </Card> 
             </div>)
         }
