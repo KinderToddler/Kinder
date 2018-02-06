@@ -1,4 +1,4 @@
-# Create React Express App
+# Kinder - App that connects families to find play dates
 https://hidden-eyrie-93586.herokuapp.com/home
 ## About This Boilerplate
 
