@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import Card from "../components/Card/Card";
 import API from "../utils/API"
-import Pass from "../components/Pass/Pass"
-import Yes from "../components/Yes/Yes"
+import Button from "../components/Button/Button"
 
 class Match extends Component {
 
@@ -54,25 +53,23 @@ class Match extends Component {
       })
   }
 
-  passMatch = (bar) => {
-    console.log('Click happened', bar);
+  passMatch = () => {
     this.setState({activeIndex: this.state.activeIndex + 1}),()=>console.log(this.state.activeIndex)
   }
-                // <pre>
-                // { JSON.stringify(Object.keys(this), null, 2) }
-                // </pre> 
+
 
   render() {
-    console.log("rendering")
-    console.log("users:", this.state.newMatches)
-    console.log("activeIndex:", this.state.activeIndex)
     return (
       <div className="find-match">
          {this.state.newMatches.length <= this.state.activeIndex || this.state.newMatches.length === 0
          ? (<p>"no matches!"</p>)
           : (
             <div>
-              <Card foo={"bar"} profile={this.state.newMatches[this.state.activeIndex]} yesClicked={this.createAMatch} passClicked={this.passMatch}/>
+              <Card profile={this.state.newMatches[this.state.activeIndex]}>
+                <Button className="pass" text="Pass..." handleClick = {this.passMatch} />
+                <Button className="pass" text="Yes!" handleClick = {this.createAMatch} />
+                <Button type="Yes!" handleClick = {this.createAMatch}/>
+              </Card> 
             </div>)
         }
       </div>

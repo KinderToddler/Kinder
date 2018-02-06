@@ -1,0 +1,22 @@
+.pass,
+.yes {
+  border-radius: 5px;
+  width: 100px;
+  height: 40px;
+  display: inline-block;
+  margin: 0px 45px 25px 45px;
+  padding: 5px;
+  font-size: 24px;
+}
+
+
+.pass {
+  background-color: red;
+  margin-left: 60px;
+  
+}
+
+.yes {
+  background-color: pink;
+  float: right;
+}
