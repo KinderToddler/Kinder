@@ -1,7 +1,13 @@
-import React, { Component } from 'react';
-import { Popover, Tooltip, Modal, Button, OverlayTrigger } from 'react-bootstrap'
-import "./Thumbnail.css"
-import API from "../../utils/API"
+import React, { Component } from "react";
+import {
+  Popover,
+  Tooltip,
+  Modal,
+  Button,
+  OverlayTrigger
+} from "react-bootstrap";
+import "./Thumbnail.css";
+import API from "../../utils/API";
 
 class Thumbnail extends React.Component {
   constructor(props, context) {
@@ -9,7 +15,6 @@ class Thumbnail extends React.Component {
 
     this.handleShow = this.handleShow.bind(this);
     this.handleClose = this.handleClose.bind(this);
-
 
     this.state = {
       show: false,
@@ -22,30 +27,28 @@ class Thumbnail extends React.Component {
   }
 
   handleShow() {
-    API.getYelpResults(this.props.matches.zipcode)
-    .then(res =>{
-      if (res.data.message){
-        this.setState({show: true})
+    API.getYelpResults(this.props.matches.zipcode).then(res => {
+      if (res.data.message) {
+        this.setState({ show: true });
+      } else {
+        this.setState({ show: true, recs: res.data.businesses });
       }
-      else {
-      this.setState({show: true, recs: res.data.businesses })
-        }
-      
-    })
+    });
   }
 
-
   render() {
-
     if (!this.props.matches) {
-    	return (<div>No Matches Yet! Add some matches :)</div>)
+      return <div>No Matches Yet! Add some matches :)</div>;
     }
-    
 
-    return( 
+    return (
       <div className="thumb-modal-container">
         <div className="img-container" key={this.props.matches._id}>
-          <img alt={this.props.matches.name} src={this.props.matches.imgUrl} className="img-thumbnail" />
+          <img
+            alt={this.props.matches.name}
+            src={this.props.matches.imgUrl}
+            className="img-thumbnail"
+          />
         </div>
 
         <Button className="view-user" bsSize="large" onClick={this.handleShow}>
@@ -58,7 +61,11 @@ class Thumbnail extends React.Component {
           </Modal.Header>
           <Modal.Body>
             <div className="img-container" key={this.props.matches._id}>
-              <img alt={this.props.matches.name} src={this.props.matches.imgUrl} className="img-thumbnail" />
+              <img
+                alt={this.props.matches.name}
+                src={this.props.matches.imgUrl}
+                className="img-thumbnail"
+              />
             </div>
 
             <h4>Profile</h4>
@@ -69,28 +76,34 @@ class Thumbnail extends React.Component {
             <p>Allergies: {this.props.matches.allergies}</p>
             <hr />
 
-
-            { this.state.recs.length > 0 ?
-              <div>Here are some places close to {this.props.matches.username} you could try out!
-              
-              {this.state.recs.map(business => {
-                return(<ul><a href={business.url}>{business.name} in {business.location.city}</a></ul>)
-                })
-              }
+            {this.state.recs.length > 0 ? (
+              <div>
+                Here are some places close to {this.props.matches.username} you
+                could try out!
+                {this.state.recs.map(business => {
+                  return (
+                    <ul>
+                      <a href={business.url}>
+                        {business.name} in {business.location.city}
+                      </a>
+                    </ul>
+                  );
+                })}
               </div>
-              : <div></div>           
-            }
+            ) : (
+              <div />
+            )}
 
             <p>Send this match a note!</p>
             {this.props.children}
-
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.handleClose}>Close</Button>
           </Modal.Footer>
         </Modal>
-      </div>)
+      </div>
+    );
   }
 }
 
-export default Thumbnail
+export default Thumbnail;
