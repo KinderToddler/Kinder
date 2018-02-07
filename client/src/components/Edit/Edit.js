@@ -4,10 +4,6 @@ import { Input, FormBtn } from "../Form";
 import "./Edit.css";
 
 class Edit extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   state = {
     imgUrl: "",
     firstName: "",

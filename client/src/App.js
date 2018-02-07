@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-// import logo from './logo.svg';
-// import './App.css';
-import Nav from './components/Nav/Nav';
+import NavHeader from './components/NavHeader/NavHeader';
 import Home from './pages/Home';
 import Match from './pages/Match';
 import Wrapper from './components/Wrapper/Wrapper';
@@ -22,7 +20,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Nav />
+          <NavHeader />
           <Wrapper>
             <Route exact path="/" component={Login} />
             <PrivateRoute path="/home" component={Home} />

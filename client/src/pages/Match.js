@@ -5,9 +5,6 @@ import Button from "../components/Button/Button"
 
 class Match extends Component {
 
-  constructor(props) {
-    super(props);
-  }
 
   state = {
     Users: [],
@@ -33,9 +30,7 @@ class Match extends Component {
       return API.getPotentialMatches(res.data.user._id)
     })
     .then(res => {
-      // console.log(res.data, this.state.id)
-      let result = res.data.filter(user => user._id != this.state.id)
-      // console.log(result)
+      let result = res.data.filter(user => user._id !== this.state.id)
       this.setState({newMatches: result, activeIndex: 0},
           () => console.log("got all users"))
     })
@@ -56,7 +51,6 @@ class Match extends Component {
   passMatch = () => {
     this.setState({activeIndex: this.state.activeIndex + 1}),()=>console.log(this.state.activeIndex)
   }
-
 
   render() {
     return (

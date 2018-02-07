@@ -1,9 +1,6 @@
 import React from "react";
 import ProfilePic from "../ProfilePic/ProfilePic";
 import Name from "../Name/Name";
-// import { Yes, Pass } from '../Button'
-import Yes from "../Yes/Yes";
-import Button from "../Button/Button";
 import "./Card.css"
 
     // <pre>
