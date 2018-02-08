@@ -1,9 +1,6 @@
 import React from "react";
 import ProfilePic from "../ProfilePic/ProfilePic";
 import Name from "../Name/Name";
-// import { Yes, Pass } from '../Button'
-import Yes from "../Yes/Yes";
-import Pass from "../Pass/Pass";
 import "./Card.css"
 
     // <pre>
@@ -40,8 +37,7 @@ const Card = (props) =>(
         </div>
     </div>
     <div>
-        <Yes yesClicked={props.yesClicked}/>
-        <Pass passClicked={props.passClicked}/>
+        {props.children}
     </div>   
   </div>  
 );

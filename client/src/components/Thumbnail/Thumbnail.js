@@ -1,11 +1,5 @@
-import React, { Component } from "react";
-import {
-  Popover,
-  Tooltip,
-  Modal,
-  Button,
-  OverlayTrigger
-} from "react-bootstrap";
+import React from "react";
+import { Modal, Button } from "react-bootstrap";
 import "./Thumbnail.css";
 import API from "../../utils/API";
 

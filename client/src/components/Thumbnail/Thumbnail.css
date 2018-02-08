@@ -1,4 +1,10 @@
+.past-matches {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
 .thumbnail-container {
+  width: 300px;
   display: inline-flex;
   flex-direction: column;
   margin: 30px;

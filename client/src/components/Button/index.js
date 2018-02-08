@@ -1,2 +1,1 @@
-export * from './Yes'
-export * from './Pass'
+export { default } from "./Button";

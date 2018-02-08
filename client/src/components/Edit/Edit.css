@@ -1,14 +1,10 @@
-.container {
-  max-width: 40%;
-  background-color: white;
-  margin: 10px auto 30px auto;
-}
-
 .wrapper > .edit-profile {
   border-style: solid;
   border-color: black;
 }
-.edit-profile, .container {
+.edit-profile {
+  width: 40%;
+  margin: 10px auto 30px auto;
   font-size: 18px;
   padding: 20px;
   border-style: solid;

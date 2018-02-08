@@ -1,14 +1,10 @@
 import React, { Component } from "react";
 import Card from "../components/Card/Card";
 import API from "../utils/API"
-import Pass from "../components/Pass/Pass"
-import Yes from "../components/Yes/Yes"
+import Button from "../components/Button/Button"
 
 class Match extends Component {
 
-  constructor(props) {
-    super(props);
-  }
 
   state = {
     Users: [],
@@ -34,9 +30,7 @@ class Match extends Component {
       return API.getPotentialMatches(res.data.user._id)
     })
     .then(res => {
-      // console.log(res.data, this.state.id)
-      let result = res.data.filter(user => user._id != this.state.id)
-      // console.log(result)
+      let result = res.data.filter(user => user._id !== this.state.id)
       this.setState({newMatches: result, activeIndex: 0},
           () => console.log("got all users"))
     })
@@ -54,25 +48,21 @@ class Match extends Component {
       })
   }
 
-  passMatch = (bar) => {
-    console.log('Click happened', bar);
+  passMatch = () => {
     this.setState({activeIndex: this.state.activeIndex + 1}),()=>console.log(this.state.activeIndex)
   }
-                // <pre>
-                // { JSON.stringify(Object.keys(this), null, 2) }
-                // </pre> 
 
   render() {
-    console.log("rendering")
-    console.log("users:", this.state.newMatches)
-    console.log("activeIndex:", this.state.activeIndex)
     return (
       <div className="find-match">
          {this.state.newMatches.length <= this.state.activeIndex || this.state.newMatches.length === 0
          ? (<p>"no matches!"</p>)
           : (
             <div>
-              <Card foo={"bar"} profile={this.state.newMatches[this.state.activeIndex]} yesClicked={this.createAMatch} passClicked={this.passMatch}/>
+              <Card profile={this.state.newMatches[this.state.activeIndex]}>
+                <Button value="pass" text="Pass..." handleClick = {this.passMatch} />
+                <Button value="yes" text="Yes!" handleClick = {this.createAMatch} />
+              </Card> 
             </div>)
         }
       </div>
