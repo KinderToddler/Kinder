@@ -1,18 +1,8 @@
 .profile-container {
-  /*font-family: 'Indie Flower', cursive;*/
-  /*font-family: 'Rubik', sans-serif;*/
   font-family: 'Gloria Hallelujah', cursive;
-  /*font-family: 'Concert One', cursive;*/
-  /*font-family: 'Freckle Face', cursive;*/
-  /*font-family: 'Itim', cursive;*/
-  /*font-family: 'Give You Glory', cursive;*/
-  /*font-family: 'Kranky', cursive;*/
-  /*font-family: 'Swanky and Moo Moo', cursive;*/
-  /*font-family: 'Snowburst One', cursive;*/
   font-size: 18px;
   width: 40%;
   background-color: #fdda6f;
-  /*display: flex;*/
   display: inline-flex;
   align-items: center;
   flex-direction: column;
@@ -39,5 +29,4 @@
   border: solid;
   border-width: 1px;
   border-color: #fdda6f;
-
 }

@@ -47,7 +47,7 @@ class Edit extends Component {
 
   render() {
     return (
-      <div className="edit-profile, container">
+      <div className="edit-profile">
         <div className="form-container, row">
           <form className="profile-form">
             image URL:
