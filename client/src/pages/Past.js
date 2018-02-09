@@ -68,15 +68,20 @@ class Past extends Component {
   }
 
   removeMatch(event){
-    let matchID = event.target.id
-    let matchBody = {
-      id: this.state.id,
-      match_id: matchID
-    }
-    API.removeAMatch(matchBody)
-      .then(res => {
-        return this.fetchMatches()
-      })
+    let r = window.confirm("Are you sure? This could be your new BFF! 😱")
+    if (r === true){
+      let matchID = event.target.id
+      let matchBody = {
+        id: this.state.id,
+        match_id: matchID
+      }
+      API.removeAMatch(matchBody)
+        .then(res => {
+          return this.fetchMatches()
+        })
+      } else{
+        return
+      }
   }
 
   render() {
