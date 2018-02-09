@@ -51,6 +51,11 @@ const NavHeader = props => (
     <Navbar.Collapse>
       <Nav>
         <NavItem eventKey={1} href="#">
+          <li className={window.location.pathname === "/home" ? "active" : ""}>
+            <Link to="/home">Home</Link>
+          </li>
+        </NavItem>
+        <NavItem eventKey={1} href="#">
           <li
             className={window.location.pathname === "home/edit" ? "active" : ""}
           >
