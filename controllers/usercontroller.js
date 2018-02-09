@@ -83,6 +83,13 @@ module.exports = {
       res.json(err);
     });
   },
+  removeMatch: function(req, res){
+    db.User
+    .findOneAndUpdate({_id: req.body.id}, {$pull: {matches: req.body.match_id}})
+    .then(function(dbUser){
+      res.json(dbUser)
+    })
+  },
   getPotentialMatches: function(req, res){
     db.User
     .findById({_id: req.params.id})

@@ -32,7 +32,8 @@ class Past extends Component {
         this.setState({
           Friends: res.data.matches,
           username: res.data.username,
-          emailaddress: res.data.email
+          emailaddress: res.data.email,
+          id: res.data._id
         });
         // console.log("heres state: ", this.state)
       })
@@ -66,15 +67,28 @@ class Past extends Component {
     });
   }
 
+  removeMatch(event){
+    let matchID = event.target.id
+    let matchBody = {
+      id: this.state.id,
+      match_id: matchID
+    }
+    API.removeAMatch(matchBody)
+      .then(res => {
+        return this.fetchMatches()
+      })
+  }
+
   render() {
     let boundSendMail = this.sendMail.bind(this);
     let boundOnChange = this.handleInputChange.bind(this);
+    let boundRemoveMatch = this.removeMatch.bind(this)
     return (
       <div className="past-matches">
         {this.state.Friends.map(friend => {
           return (
             <div className="thumbnail-container">
-              <Thumbnail matches={friend}>
+              <Thumbnail matches={friend} removeMatch={boundRemoveMatch}>
                 <TextArea
                   onChange={boundOnChange}
                   value={this.state.emailBody}
