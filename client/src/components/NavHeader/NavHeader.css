@@ -38,11 +38,11 @@ li {
 .brand {
     font-family: 'Kranky', cursive;
     text-decoration: underline;
-    font-size: 2.5em;
+    font-size: 3em;
     transform: rotate(-7deg);
     display: block;
     text-align: center;
-    padding: 20px 28px;
+    padding: 28px 28px;
 }
 
 .navbar {
@@ -57,4 +57,9 @@ li {
     top: 0px;
     width: 100%;
     z-index: 2;
+}
+
+
+.navbar-default{
+    background-image: linear-gradient(to bottom,#fdda6f 0,#fdda6f 100%);
 }

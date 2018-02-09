@@ -1,13 +1,12 @@
 *{
   font-family: 'Indie Flower', cursive;
-  /*font-family: 'Rubik', sans-serif;*/
-  /*font-family: 'Gloria Hallelujah', cursive;*/
-  /*font-family: 'Concert One', cursive;*/
-  /*font-family: 'Freckle Face', cursive;*/
-  /*font-family: 'Itim', cursive;*/
-  /*font-family: 'Give You Glory', cursive;*/
-  /*font-family: 'Kranky', cursive;*/
-  /*font-family: 'Swanky and Moo Moo', cursive;*/
-  /*font-family: 'Snowburst One', cursive;*/
+  font-size: 24px;
 }
 
+
+.btn{
+  background-color: white;
+}
+.btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn.active.focus {
+  background-color: none;
+}
