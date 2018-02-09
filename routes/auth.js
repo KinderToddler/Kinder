@@ -17,17 +17,20 @@ module.exports = (app, passport) => {
   });
 
   // Route for signing up a user. 
-  app.post('/auth/signup', function(req, res) {
-    db.User.create({
+  app.post('/auth/signup', async function(req, res, next) {
+    
+    try {
+      db.User.create({
         username: req.body.username,
         password: req.body.password
       })
-      .then(function(user) {
-        res.json(user)
-      })
-      .catch(function(err) {
-        res.json(err)
-      })
+      next()
+    }
+    catch (err) {
+      res.json(err)
+    }
+  }, passport.authenticate('local'), ({ user }, res) => {
+    res.send({ user })
   })
 
 

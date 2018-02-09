@@ -25,6 +25,9 @@ export default {
   createAMatch: (matchesObj) => {
     return axios.post("/api/user/match", matchesObj)
   },
+  removeAMatch: (matchesObj) => {
+    return axios.post("/api/user/removematch", matchesObj)
+  },
   logUserOut: credentials => {
     return axios.get("/auth/logout")
   },
