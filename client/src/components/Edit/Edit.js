@@ -15,7 +15,8 @@ class Edit extends Component {
     likes: "",
     dislikes: "",
     allergies: "",
-    zipcode: ""
+    zipcode: "",
+    dob: ""
   };
 
   componentDidMount() {
@@ -126,6 +127,13 @@ class Edit extends Component {
               onChange={this.onEditChange}
               name="zipcode"
               placeholder="zipcode"
+            />
+            Date Of Birth:
+            <Input
+              value={this.state.dob}
+              onChange={this.onEditChange}
+              name="dob"
+              placeholder="DD-MM-YYYY"
             />
             <FormBtn onClick={this.onButtonClick}>Done</FormBtn>
           </form>
