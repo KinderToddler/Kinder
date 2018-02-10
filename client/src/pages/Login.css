@@ -26,32 +26,14 @@
 .wrapper > #login-container {
   text-align: center; 
   padding: 25px;
-  /*font-family: 'Indie Flower', cursive;*/
-  /*font-family: 'Rubik', sans-serif;*/
   font-family: 'Gloria Hallelujah', cursive;
-  /*font-family: 'Concert One', cursive;*/
-  /*font-family: 'Freckle Face', cursive;*/
-  /*font-family: 'Itim', cursive;*/
-  /*font-family: 'Give You Glory', cursive;*/
-  /*font-family: 'Kranky', cursive;*/
-  /*font-family: 'Swanky and Moo Moo', cursive;*/
-  /*font-family: 'Snowburst One', cursive;*/
 } 
 
 .header {
   font-size: 45px;
   text-align: center; 
   padding: 25px;
-  /*font-family: 'Indie Flower', cursive;*/
-  /*font-family: 'Rubik', sans-serif;*/
-  /*font-family: 'Gloria Hallelujah', cursive;*/
-  /*font-family: 'Concert One', cursive;*/
-  /*font-family: 'Freckle Face', cursive;*/
-  /*font-family: 'Itim', cursive;*/
   font-family: 'Give You Glory', cursive;
-  /*font-family: 'Kranky', cursive;*/
-  /*font-family: 'Swanky and Moo Moo', cursive;*/
-  /*font-family: 'Snowburst One', cursive;*/
 }
 
 .wrapper > #login-container > .row {
@@ -59,5 +41,24 @@
     margin: auto;
     margin-top: 20px;
     border-style: none;
+}
 
+.switch-login {
+  font-size: 1.7em;
+}
+
+.about-Kinder {
+  margin-top: 20px;
+  font-size: 1.7em;
+  text-align: left;
+  letter-spacing: 3px;
+  font-family: 'Give You Glory', cursive;
+}
+
+.usage-Kinder {
+  margin-top: 20px;
+  font-size: 1.3em;
+  text-align: left;
+  letter-spacing: 3px;
+  font-family: 'Give You Glory', cursive;
 }

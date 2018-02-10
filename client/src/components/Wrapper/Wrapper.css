@@ -1,6 +1,21 @@
 .wrapper {
   height: 200%;
   margin-top: 100px;
-/*  background-image: url("/background.png");
-  background-color: #a5d4ec;*/
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-device {
+    display: none;
+  }
+}
+
+.mobile-device {
+  background-color: #FFEB3B;
+  position: absolute;
+  top: 200px;
+  margin: 10%;
+  padding-top: 20%;
+  font-size: 2em;
+  height: 50%;
+  text-align: center;
 }

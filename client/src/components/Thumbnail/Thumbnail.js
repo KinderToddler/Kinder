@@ -57,7 +57,7 @@ class Thumbnail extends React.Component {
         <Button className="view-user" bsSize="large" onClick={this.handleShow}>
           View User
         </Button>
-        <button id={this.props.matches._id} onClick={this.props.removeMatch}>
+        <button className="delete-match" id={this.props.matches._id} onClick={this.props.removeMatch}>
                 remove this match
         </button>
 
