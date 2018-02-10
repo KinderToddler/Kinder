@@ -61,6 +61,7 @@ class Login extends Component {
     else {
       API.loginUser(user)
       .then(function(res){
+        console.log("just for heroku")
         if (res.data.user._id) {
           authState.loggedIn = true
           this.setState({loggedIn: true})
