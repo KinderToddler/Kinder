@@ -2,6 +2,7 @@ import React from "react";
 import { Modal, Button } from "react-bootstrap";
 import "./Thumbnail.css";
 import API from "../../utils/API";
+import moment from 'moment';
 
 class Thumbnail extends React.Component {
   constructor(props, context) {
@@ -28,6 +29,14 @@ class Thumbnail extends React.Component {
         this.setState({ show: true, recs: res.data.businesses });
       }
     });
+  }
+
+  age() {
+    if (this.props.matches.dob){
+        return moment().diff(moment(this.props.matches.dob, 'DD-MM-YYYY'), 'months')
+    } else{
+       return "??"
+    }
   }
 
   render() {
@@ -66,7 +75,7 @@ class Thumbnail extends React.Component {
             </div>
 
             <h4>Profile</h4>
-            <p>Age: {this.props.matches.age}</p>
+            <p>Age: {this.age()} months</p>
             <p>Height: {this.props.matches.height}</p>
             <p>Likes: {this.props.matches.likes}</p>
             <p>Dislikes: {this.props.matches.dislikes}</p>

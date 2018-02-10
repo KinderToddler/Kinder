@@ -1,11 +1,17 @@
 import React from "react";
 import ProfilePic from "../ProfilePic/ProfilePic";
 import Name from "../Name/Name";
-import "./Card.css"
+import "./Card.css";
+import moment from "moment";
 
-    // <pre>
-    //   { JSON.stringify(props, null, 2) }
-    // </pre>
+function age(dob) {
+    if (dob){
+        return moment().diff(moment(dob, 'DD-MM-YYYY'), 'months')
+    } else{
+       return "??"
+    }
+}
+
 const Card = (props) =>(
   <div className="card-container">
 
@@ -24,7 +30,7 @@ const Card = (props) =>(
             Height: <Name name={props.profile.height} />
          </div>
         <div className="user-info">
-            Age: <Name name={props.profile.age} />
+            Age: <Name name={age(props.profile.dob)} /> months
         </div>
         <div className="user-info">   
             Likes: <Name name={props.profile.likes} />

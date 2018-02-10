@@ -62,6 +62,10 @@ var UserSchema = new Schema({
   zipcode: {
     type: Number,
     required: false
+  },
+  dob: {
+    type: String,
+    required: false
   }
 
 });
