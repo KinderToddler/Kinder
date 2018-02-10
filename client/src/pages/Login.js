@@ -132,15 +132,28 @@ class Login extends Component {
                 }
               </FormBtn>
 
-              <p
-                style={{ color: 'blue', float: 'left', textDecoration: 'underline', cursor: 'pointer' }}
+              <p className='switch-login'
+                style={{ color: 'white', float: 'left', cursor: 'pointer'}}
                 onClick={ () => this.setState({ newUser: !newUser }) }
               >
                 {
-                  newUser ? 'Already a user? Login instead' : 'Need an account? Signup instead'
+                  newUser ? 'Already a user? Click here to Login' : 'Need an account? Click Here to Signup'
                 }
               </p>
-
+              <div className='about-Kinder'
+                style={{ color: 'white', float: 'left', cursor: 'pointer'}}
+              >
+                {
+                  newUser ? 'Kinder helps families to connect with other families and find play dates for their little ones. Once you signup, use "Edit" function to add your little one\'s information to complete your profile.' : ''
+                }
+              </div>
+              <div className='usage-Kinder'
+                style={{ color: 'white', float: 'left', cursor: 'pointer'}}
+              >
+                {
+                  newUser ? '*This app is intended to be a family activity and not to be used as an idle time killer during commute.' : ''
+                }
+              </div>
             </form>
           </div>  
           <div className="col-md-3"></div>

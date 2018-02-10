@@ -37,7 +37,6 @@ li {
 
 .brand {
     font-family: 'Kranky', cursive;
-    text-decoration: underline;
     font-size: 3em;
     transform: rotate(-7deg);
     display: block;
@@ -58,7 +57,6 @@ li {
     width: 100%;
     z-index: 2;
 }
-
 
 .navbar-default{
     background-image: linear-gradient(to bottom,#fdda6f 0,#fdda6f 100%);

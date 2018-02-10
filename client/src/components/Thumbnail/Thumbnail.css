@@ -23,7 +23,7 @@
   flex-direction: column;
 }
 
-.view-user {
+.view-user, button.delete-match  {
   background-image: none;
   border-color: #d73725;
   width: 70%;
@@ -87,4 +87,10 @@
 
 .modal-body {
   font-size: 24px;
+}
+
+.thumb-modal-container > button.delete-match {
+  margin-top: 25px;
+  background-color: #80808047;
+  color: white;
 }
