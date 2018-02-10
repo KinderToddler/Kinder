@@ -12,7 +12,6 @@ module.exports = (app, passport) => {
 
   //Route for logging out a user
   app.post('/auth/login', passport.authenticate('local'), function(req, res) {
-    console.log("authenticated")
     res.send({user: req.user})
   });
 

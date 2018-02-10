@@ -26,7 +26,7 @@ const Profile = (props) =>(
             Height: <Name name={props.profile.height} />
          </div>
         <div className="user-info">
-            Age: <Name name={props.profile.age} />
+            Date of Birth: <Name name={props.profile.dob} />
         </div>
         <div className="user-info">   
             Likes: <Name name={props.profile.likes} />

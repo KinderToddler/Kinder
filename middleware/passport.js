@@ -20,7 +20,6 @@ module.exports = function (passport) {
     async function(username, password, done) {
       // When a user tries to sign in this code runs
       try {
-        console.log("trying to find user, ", username)
         const dbUser = await db.User.findOne({ username: username })
 
         if ( !dbUser ) {

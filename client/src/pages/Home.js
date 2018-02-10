@@ -14,7 +14,7 @@ class Home extends Component {
       lastName: "",
       username: "",
       gender: "",
-      age: "",
+      dob: "",
       height: "",
       likes: "",
       dislikes: "",

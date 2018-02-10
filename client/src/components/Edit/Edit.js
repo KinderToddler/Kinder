@@ -93,14 +93,7 @@ class Edit extends Component {
               name="height"
               placeholder="height"
             />
-            Age:
-            <Input
-              value={this.state.age}
-              onChange={this.onEditChange}
-              name="age"
-              placeholder="age"
-            />
-            likes:
+            Likes:
             <Input
               value={this.state.likes}
               onChange={this.onEditChange}

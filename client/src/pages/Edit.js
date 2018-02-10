@@ -50,8 +50,8 @@ class Edit extends Component {
     API.checkForSession()
       .then( res => {
         const id = res.data.user._id
-        const { imgUrl, firstName, lastName, username, gender, age, height, likes, dislikes, allergies, email } = this.state
-        return API.updateUser(id, { imgUrl, firstName, lastName, username, gender, age, height, likes, dislikes, allergies, email })
+        const { imgUrl, firstName, lastName, username, gender, dob, height, likes, dislikes, allergies, email } = this.state
+        return API.updateUser(id, { imgUrl, firstName, lastName, username, gender, dob, height, likes, dislikes, allergies, email })
       })
       .then( res => {
         console.log("updated")
@@ -61,7 +61,7 @@ class Edit extends Component {
   }
 
   render() {
-    const { imgUrl, firstName, lastName, username, gender, age, height, likes, dislikes, allergies, email} = this.state
+    const { imgUrl, firstName, lastName, username, gender, dob, height, likes, dislikes, allergies, email} = this.state
 
 
     return (
@@ -101,10 +101,10 @@ class Edit extends Component {
                 placeholder='gender'
               />
               <Input
-                value={ age }
+                value={ dob }
                 onChange={ this.handleInputChange }
-                name='age'
-                placeholder='age'
+                name='dob'
+                placeholder='dob'
               />
               <Input
                 value={ height }

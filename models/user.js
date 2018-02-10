@@ -38,10 +38,6 @@ var UserSchema = new Schema({
     type: String,
     required: false
   },
-  age: {
-    type: String,
-    required: false
-  },
   imgUrl: {
     type: String,
     required: false
