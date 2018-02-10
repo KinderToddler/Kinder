@@ -23,14 +23,16 @@ module.exports = (app, passport) => {
       db.User.create({
         username: req.body.username,
         password: req.body.password
+      }).then(function(dbuser) {
+        next()
       })
-      next()
+      
     }
     catch (err) {
       res.json(err)
     }
   }, passport.authenticate('local'), ({ user }, res) => {
-    res.send({ user })
+    res.send({user})
   })
 
 
